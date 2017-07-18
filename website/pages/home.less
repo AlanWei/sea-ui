@@ -1,18 +1,21 @@
 @import '~styles/variables';
-
+@import '~styles/mixins';
 .root {
-  .header {
-    height: 80px;
-    line-height: 80px;
-    width: 100%;
-    background-color: @white;
-    padding: 0 4%;
-    border-bottom: 1px solid @border;
+  .flex-center();
+  padding: 70px 0;
+  .demo {
+    width: 377px;
+    height: 620px;
+    box-shadow: 0 0 10px #888;
+    margin-right: 36px;
   }
-  .title {
-    color: @blue;
+  .bannerTextWrapper {
+    .flex-center();
+    flex-direction: column;
   }
-  .menu {
-    float: right;
+  .bannerText {
+    font-size: 40px;
+    word-break: break-word;
+    line-height: 1.5;
   }
 }

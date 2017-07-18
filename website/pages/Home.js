@@ -6,12 +6,15 @@ class Home extends Component {
   render() {
     return (
       <div className={style.root}>
-        <header className={style.header}>
-          <span className={style.title}>SEA UI MOBILE</span>
-          <ul className={style.menu}>
-            <li><Link to="/components">Components</Link></li>
-          </ul>
-        </header>
+        <div className={style.demo} />
+        <div className={style.bannerTextWrapper}>
+          <div className={style.bannerText}>
+            FrontEnd UI Library
+          </div>
+          <div className={style.bannerText}>
+            for Mobile Devices
+          </div>
+        </div>
       </div>
     );
   }

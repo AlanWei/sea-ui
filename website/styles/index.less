@@ -1,22 +1,55 @@
 @import 'variables';
+@import 'mixins';
 @import 'skeleton';
 html,
 body,
 #app {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   background-color: @background;
-	font-family: PingFang SC, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 400;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: PingFang SC, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: @text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-	.pull-right {
-		float: right;
-	}
-	.pull-left {
-		float: left;
-	}
+  .pull-right {
+    float: right;
+  }
+  .pull-left {
+    float: left;
+  }
+  .seaui-header {
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    background-color: @white;
+    padding: 0 4%;
+    border-bottom: 1px solid @border;
+  }
+  .seaui-title {
+    color: @blue;
+  }
+  .seaui-menu {
+    float: right;
+    li {
+      padding: 0 20px;
+      margin-top: -2px;
+      cursor: pointer;
+      &:hover {
+        color: @blue;
+        border-bottom: 2px solid @blue;
+        a {
+          color: @blue;
+        }
+      }
+    }
+  }
+  .seaui-footer {
+    .flex-center();
+    height: 100px;
+    background-color: @white;
+  }
 }
