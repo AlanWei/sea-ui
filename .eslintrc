@@ -12,6 +12,7 @@
     "react/jsx-no-bind": [1]
   },
   "globals": {
-    "document": true
+    "document": true,
+    "window": true
   }
 }

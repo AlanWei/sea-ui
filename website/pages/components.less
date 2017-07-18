@@ -1,0 +1,18 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+.root {
+  min-height: 100vh;
+  background-color: @background;
+  padding: 1em;
+  .title {
+    font-weight: normal;
+    margin: 1em 0;
+    font-size: 2em;
+  }
+  .component {
+    .flex-center();
+    height: 75px;
+    background-color: @white;
+    font-size: 1.2em;
+  }
+}

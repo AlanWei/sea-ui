@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Home, Components } from './pages';
+import { Home, Components, ComponentBase } from './pages';
+import { Button } from './components';
 import './styles/index.less';
 
 const PREFIXCLS = 'seaui';
 
 class App extends Component {
   render() {
+    const currentPath = window.location.pathname;
+    const showHeaderFooter = currentPath === '/';
     return (
       <Router>
         <div>
-          <header className={`${PREFIXCLS}-header`}>
-            <span className={`${PREFIXCLS}-title`}>SEA UI MOBILE</span>
-            <ul className={`${PREFIXCLS}-menu`}>
-              <li><Link to="/components">Components</Link></li>
-            </ul>
-          </header>
+          {showHeaderFooter ?
+            <header className={`${PREFIXCLS}-header`}>
+              <Link to="/"><span className={`${PREFIXCLS}-title`}>SEA MOBILE</span></Link>
+              <ul className={`${PREFIXCLS}-menu`}>
+                <li><Link to="/components">Components</Link></li>
+              </ul>
+            </header>
+            :
+            null
+          }
           <Route exact path="/" component={Home} />
           <Route path="/components" component={Components} />
-          <footer className={`${PREFIXCLS}-footer`}>
-            Copyright © 2017
-          </footer>
+          <Route path="/abc" component={ComponentBase} />
+          <Route path="/abc/button" component={Button} />
+          {showHeaderFooter ?
+            <footer className={`${PREFIXCLS}-footer`}>
+              Copyright © 2017
+            </footer>
+            :
+            null
+          }
         </div>
       </Router>
     );
