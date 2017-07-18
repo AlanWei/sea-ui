@@ -7,10 +7,11 @@ class Home extends Component {
     return (
       <div className={style.root}>
         <header className={style.header}>
-          <div>SEA UI</div>
+          <span className={style.title}>SEA UI MOBILE</span>
+          <ul className={style.menu}>
+            <li><Link to="/components">Components</Link></li>
+          </ul>
         </header>
-        SEA UI
-        <Link to="/components">Components</Link>
       </div>
     );
   }

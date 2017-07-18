@@ -33,6 +33,43 @@ module.exports = {
       include: [
         path.resolve(__dirname, 'website'),
       ],
+      exclude: [
+        path.resolve(__dirname, 'website/pages'),
+      ],
+      use: ExtractTextPlugin.extract({
+        fallback: {
+          loader: 'style-loader',
+          options: {
+            singleton: true,
+          },
+        },
+        use: [{
+          loader: 'css-loader',
+          options: {
+            minimize: ENV === 'production',
+            sourceMap: ENV === 'development',
+            importLoaders: 1,
+          },
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [
+              autoprefixer({ browsers: 'last 5 versions' }),
+            ],
+            sourceMap: true,
+          },
+        }, {
+          loader: 'less-loader',
+          options: {
+            sourceMap: ENV === 'development',
+          },
+        }],
+      }),
+    }, {
+      test: /\.(less|css)$/,
+      include: [
+        path.resolve(__dirname, 'website/pages'),
+      ],
       use: ExtractTextPlugin.extract({
         fallback: {
           loader: 'style-loader',
@@ -81,7 +118,7 @@ module.exports = {
       'node_modules',
     ],
     alias: {
-      style: path.resolve(__dirname, 'website/style'),
+      styles: path.resolve(__dirname, 'website/styles'),
     },
   },
 
