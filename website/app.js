@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home, Components, ComponentBase } from './pages';
-import { Button } from './components';
+import { Button, Carousel } from './components';
 import './styles/index.less';
 
 const PREFIXCLS = 'seaui';
@@ -27,6 +27,7 @@ class App extends Component {
           <Route path="/components" component={Components} />
           <Route path="/component" component={ComponentBase} />
           <Route path="/component/button" component={Button} />
+          <Route path="/component/carousel" component={Carousel} />
           {showHeaderFooter ?
             <footer className={`${PREFIXCLS}-footer`}>
               Copyright © 2017

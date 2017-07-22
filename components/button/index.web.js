@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
-import { RED, WHITE, TRANSPARENT, TEXT } from '../styles/variables';
+import { RED, WHITE, TRANSPARENT } from '../styles/variables';
 import BaseStyle from './style';
 
 const Btn = styled.div`
@@ -40,16 +40,17 @@ const Btn = styled.div`
 `;
 
 class Button extends Component {
-  static defaultProps = {
-    type: 'primary',
-    size: 'regular',
-    children: '',
-  };
 
   static propTypes = {
     type: PropTypes.oneOf(['primary', 'ghost', 'blank']),
     size: PropTypes.oneOf(['regular', 'large', 'small']),
     children: PropTypes.element,
+  };
+
+  static defaultProps = {
+    type: 'primary',
+    size: 'regular',
+    children: '',
   };
 
   render() {

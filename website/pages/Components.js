@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import map from 'lodash/map';
 import style from './components.less';
 
 const COMPONENTS = [
   'button',
+  'carousel',
 ];
 
 function capitalizeFirstLetter(string) {
@@ -12,7 +14,7 @@ function capitalizeFirstLetter(string) {
 
 class Components extends Component {
   renderComponentList = () => (
-    (COMPONENTS.map(component => (<Link
+    map(COMPONENTS, component => (<Link
       to={{
         pathname: `/component/${component}`,
         state: {
@@ -22,7 +24,8 @@ class Components extends Component {
       key={component}
     >
       <div className={style.component}>{capitalizeFirstLetter(component)}</div>
-    </Link>))))
+    </Link>))
+  )
 
   render() {
     return (

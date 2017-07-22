@@ -9,7 +9,7 @@ class ComponentBase extends Component {
     return (
       <div className={style.root}>
         <header className={style.header}>
-          <Link to="/components"><span className={style.home}>Home</span></Link>
+          <Link to="/components"><span className={style.home}>List</span></Link>
           <span className={style.componentName}>{componentName}</span>
         </header>
       </div>
