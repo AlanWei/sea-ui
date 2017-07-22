@@ -1,65 +1,40 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
-import { SB_RED, WHITE, TRANSPARENT, SB_GREY } from '../styles/variables';
-import { Button as ButtonStyle } from '../styles/base';
+import { RED, WHITE, TRANSPARENT, TEXT } from '../styles/variables';
+import BaseStyle from './style';
 
 const Btn = styled.div`
-  display: inline-block;
-  text-align: center;
+  display: flex
+  justifyContent: center
+  alignItems: center
   border-radius: 3px;
-  background-color: ${props => (props.type === 'primary' ? SB_RED : TRANSPARENT)};
-  color: ${props => (props.type === 'primary' ? WHITE : SB_GREY)};
+  background-color: ${props => (props.type === 'primary' ? RED : TRANSPARENT)};
+  color: ${props => (props.type === 'primary' ? WHITE : '#000000')};
   border: ${props => (props.type === 'ghost' ? '1px solid #40485a' : 'none')};
   font-size: ${(props) => {
     const size = props.size;
     switch (size) {
       case 'regular':
-        return `${ButtonStyle.fontSize}px`;
+        return `${BaseStyle.fontSize}px`;
       case 'small':
-        return `${(ButtonStyle.fontSize) * (1 - 0.2)}px`;
+        return `${(BaseStyle.fontSize) * (1 - 0.2)}px`;
       case 'large':
-        return `${(ButtonStyle.fontSize) * (1 + 0.3)}px`;
+        return `${(BaseStyle.fontSize) * (1 + 0.3)}px`;
       default:
-        return `${ButtonStyle.fontSize}px`;
-    }
-  }};
-  width: ${(props) => {
-    const size = props.size;
-    switch (size) {
-      case 'regular':
-        return `${ButtonStyle.width}px`;
-      case 'small':
-        return `${(ButtonStyle.width) * (1 - 0.2)}px`;
-      case 'large':
-        return `${(ButtonStyle.width) * (1 + 0.3)}px`;
-      default:
-        return `${ButtonStyle.width}px`;
+        return `${BaseStyle.fontSize}px`;
     }
   }};
   height: ${(props) => {
     const size = props.size;
     switch (size) {
       case 'regular':
-        return `${ButtonStyle.height}px`;
+        return `${BaseStyle.height}px`;
       case 'small':
-        return `${(ButtonStyle.height) * (1 - 0.2)}px`;
+        return `${(BaseStyle.height) * (1 - 0.2)}px`;
       case 'large':
-        return `${(ButtonStyle.height) * (1 + 0.3)}px`;
+        return `${(BaseStyle.height) * (1 + 0.3)}px`;
       default:
-        return `${ButtonStyle.height}px`;
-    }
-  }};
-  line-height: ${(props) => {
-    const size = props.size;
-    switch (size) {
-      case 'regular':
-        return `${ButtonStyle.height}px`;
-      case 'small':
-        return `${(ButtonStyle.height) * (1 - 0.2)}px`;
-      case 'large':
-        return `${(ButtonStyle.height) * (1 + 0.3)}px`;
-      default:
-        return `${ButtonStyle.height}px`;
+        return `${BaseStyle.height}px`;
     }
   }};
 `;

@@ -12,7 +12,15 @@ function capitalizeFirstLetter(string) {
 
 class Components extends Component {
   renderComponentList = () => (
-    (COMPONENTS.map(component => (<Link to={`/abc/${component}`} key={component}>
+    (COMPONENTS.map(component => (<Link
+      to={{
+        pathname: `/component/${component}`,
+        state: {
+          componentName: capitalizeFirstLetter(component),
+        },
+      }}
+      key={component}
+    >
       <div className={style.component}>{capitalizeFirstLetter(component)}</div>
     </Link>))))
 

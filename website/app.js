@@ -25,8 +25,8 @@ class App extends Component {
           }
           <Route exact path="/" component={Home} />
           <Route path="/components" component={Components} />
-          <Route path="/abc" component={ComponentBase} />
-          <Route path="/abc/button" component={Button} />
+          <Route path="/component" component={ComponentBase} />
+          <Route path="/component/button" component={Button} />
           {showHeaderFooter ?
             <footer className={`${PREFIXCLS}-footer`}>
               Copyright © 2017
