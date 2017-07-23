@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import map from 'lodash/map';
 import { Carousel } from '../../components/index.web';
 
@@ -7,13 +8,13 @@ const BLUE = '#286FDC';
 const GREEN = '#3AC88E';
 
 const DATA = [{
-  name: 'Carousel',
+  name: '1',
   color: RED,
 }, {
-  name: 'Carousel',
+  name: '2',
   color: BLUE,
 }, {
-  name: 'Carousel',
+  name: '3',
   color: GREEN,
 }];
 
@@ -41,9 +42,8 @@ class Demo extends Component {
         <div className="component-section">
           <Carousel
             className="component-item"
-            style={{
-              height: '10em',
-            }}
+            height="10em"
+            width={345}
           >
             {this.renderItems()}
           </Carousel>
