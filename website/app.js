@@ -16,9 +16,9 @@ class App extends Component {
           {showHeaderFooter ?
             <header className={`${PREFIXCLS}-header`}>
               <Link to="/"><span className={`${PREFIXCLS}-title`}>SEA MOBILE</span></Link>
-              <ul className={`${PREFIXCLS}-menu`}>
+              {/*<ul className={`${PREFIXCLS}-menu`}>
                 <li><Link to="/components">Components</Link></li>
-              </ul>
+              </ul>*/}
             </header>
             :
             null

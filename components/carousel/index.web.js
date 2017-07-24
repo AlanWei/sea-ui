@@ -60,6 +60,7 @@ const Carousel = createReactClass({
       translateX: 0,
       startPositionX: 0,
       moveDeltaX: 0,
+      dragging: false,
     };
   },
 
@@ -112,6 +113,10 @@ const Carousel = createReactClass({
     const { moveDeltaX } = this.state;
     const threshold = width * THRESHOLD_PERCENTAGE;
     const moveToNext = Math.abs(moveDeltaX) > threshold;
+
+    this.setState({
+      dragging: false,
+    });
 
     if (moveToNext) {
       this.handleSwipe();
@@ -173,6 +178,34 @@ const Carousel = createReactClass({
     });
   },
 
+  handleMouseDown(e) {
+    this.setState({
+      dragging: true,
+    });
+    this.handleTouchStart(e);
+  },
+
+  handleMouseMove(e) {
+    if (!this.state.dragging) {
+      return;
+    }
+    this.handleTouchMove(e);
+  },
+
+  handleMouseUp() {
+    if (!this.state.dragging) {
+      return;
+    }
+    this.handleTouchEnd();
+  },
+
+  handleMouseLeave() {
+    if (!this.state.dragging) {
+      return;
+    }
+    this.handleTouchEnd();
+  },
+
   renderSilderList() {
     const { children, height, width } = this.props;
     const count = size(children);
@@ -193,6 +226,10 @@ const Carousel = createReactClass({
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
             onTouchEnd={this.handleTouchEnd}
+            onMouseDown={this.handleMouseDown}
+            onMouseMove={this.handleMouseMove}
+            onMouseUp={this.handleMouseUp}
+            onMouseLeave={this.handleMouseLeave}
           >
             {c}
           </SliderItem>

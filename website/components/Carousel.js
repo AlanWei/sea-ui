@@ -40,6 +40,7 @@ class Demo extends Component {
     return (
       <div className="component-content">
         <div className="component-section">
+          <div className="component-title">Normal</div>
           <Carousel
             className="component-item"
             height="10em"
