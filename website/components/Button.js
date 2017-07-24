@@ -7,17 +7,20 @@ class Demo extends Component {
       <div className="component-content">
         <div className="component-section">
           <div className="component-title">Type</div>
+          <div className="component-subtitle">primary</div>
           <Button
             className="component-item"
           >
             <span>Primary</span>
           </Button>
+          <div className="component-subtitle">ghost</div>
           <Button
             className="component-item"
             type="ghost"
           >
             <span>Ghost</span>
           </Button>
+          <div className="component-subtitle">blank</div>
           <Button
             className="component-item"
             type="blank"
@@ -27,17 +30,20 @@ class Demo extends Component {
         </div>
         <div className="component-section">
           <div className="component-title">Size</div>
+          <div className="component-subtitle">large</div>
           <Button
             className="component-item"
             size="large"
           >
             <span>Primary</span>
           </Button>
+          <div className="component-subtitle">regular</div>
           <Button
             className="component-item"
           >
             <span>Primary</span>
           </Button>
+          <div className="component-subtitle">small</div>
           <Button
             className="component-item"
             size="small"
