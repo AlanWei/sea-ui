@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import map from 'lodash/map';
 import { Carousel } from '../../components/index.web';
 
