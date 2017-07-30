@@ -127,7 +127,7 @@ const Carousel = createReactClass({
 
   handleSwipe() {
     const { children, width } = this.props;
-    const { currentIndex, direction } = this.state;
+    const { currentIndex, direction, translateX } = this.state;
     const count = size(children);
 
     let newIndex;
@@ -146,12 +146,34 @@ const Carousel = createReactClass({
       endValue = -(width) * newIndex;
     }
 
-    this.tweenState('translateX', {
-      easing: tweenState.easingTypes.easeInOutQuad,
-      duration: 500,
-      endValue,
-      onEnd: this.handleAnimationEnd.bind(null, newIndex),
+    this.step(0, translateX, endValue, newIndex);
+
+    // this.tweenState('translateX', {
+    //   easing: tweenState.easingTypes.easeInOutQuad,
+    //   duration: 500,
+    //   endValue,
+    //   onEnd: this.handleAnimationEnd.bind(null, newIndex),
+    // });
+  },
+
+  step(i, start, end, newIndex) {
+    const { width } = this.props;
+    const translateX = start + (((end - start) / 10) * i);
+    this.setState({
+      translateX,
     });
+    if (i < 10) {
+      this.rafId = window.requestAnimationFrame(this.step.bind(null, i + 1, start, end, newIndex));
+    } else {
+      this.setState({
+        direction: null,
+        startPositionX: 0,
+        moveDeltaX: 0,
+        currentIndex: newIndex,
+        translateX: -(width) * newIndex,
+      });
+      window.cancelAnimationFrame(this.rafId);
+    }
   },
 
   handleMisoperation() {
@@ -208,6 +230,7 @@ const Carousel = createReactClass({
 
   renderSilderList() {
     const { children, height, width } = this.props;
+    const { translateX } = this.state;
     const count = size(children);
 
     return (<Frame>
@@ -215,7 +238,7 @@ const Carousel = createReactClass({
         height={height}
         width={width * count}
         style={{
-          transform: `translateX(${this.getTweeningValue('translateX')}px)`,
+          transform: `translateX(${translateX}px)`,
         }}
       >
         {map(children, (c, i) => (
