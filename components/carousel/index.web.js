@@ -12,6 +12,7 @@ import { getPosition } from '../_utils/domUtils';
 
 const FPS = 60;
 const UPDATE_INTERVAL = 1000 / FPS;
+const THRESHOLD_PERCENTAGE = 0.1;
 
 const Container = styled.div`
   position: relative;
@@ -43,7 +44,6 @@ const SliderItem = styled.li`
   width: ${props => `${props.width}px`}
 `;
 
-// eslint-disable-next-line react/prefer-es6-class
 class Carousel extends Component {
   static propTypes = {
     children: PropTypes.arrayOf(
@@ -125,11 +125,19 @@ class Carousel extends Component {
   }
 
   handleTouchEnd = () => {
+    const { moveDeltaX, width } = this.state;
+    const threshold = width * THRESHOLD_PERCENTAGE;
+    const moveToNext = Math.abs(moveDeltaX) > threshold;
+
     this.setState({
       dragging: false,
     });
 
-    this.handleSwipe();
+    if (moveToNext) {
+      this.handleSwipe();
+    } else {
+      this.handleMisoperation();
+    }
   }
 
   handleSwipe = () => {
@@ -165,23 +173,40 @@ class Carousel extends Component {
   }
 
   animation = (tweenQueue, newIndex) => {
-    const { width } = this.state;
     if (tweenQueue.length === 0) {
-      this.setState({
-        direction: null,
-        startPositionX: 0,
-        moveDeltaX: 0,
-        currentIndex: newIndex,
-        translateX: -(width) * newIndex,
-      });
+      this.handleAnimationEnd(newIndex);
       return;
     }
+
     this.setState({
       translateX: head(tweenQueue),
     });
-
     tweenQueue.shift();
     this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
+  }
+
+  handleAnimationEnd = (newIndex) => {
+    const { width } = this.state;
+
+    this.setState({
+      direction: null,
+      startPositionX: 0,
+      moveDeltaX: 0,
+      currentIndex: newIndex,
+      translateX: -(width) * newIndex,
+    });
+  }
+
+  handleMisoperation() {
+    const { width, currentIndex } = this.state;
+
+    this.setState({
+      direction: null,
+      startPositionX: 0,
+      moveDeltaX: 0,
+      currentIndex,
+      translateX: -(width) * currentIndex,
+    });
   }
 
   handleMouseDown = (e) => {
