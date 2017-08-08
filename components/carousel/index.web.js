@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import createReactClass from 'create-react-class';
 import styled from 'styled-components';
-import tweenState from 'react-tween-state';
+import tweenFunctions from 'tween-functions';
+import requestAnimationFrame from 'raf';
+import get from 'lodash/get';
 import map from 'lodash/map';
 import size from 'lodash/size';
 import omit from 'lodash/omit';
+import head from 'lodash/head';
 import { getPosition } from '../_utils/domUtils';
 
-const THRESHOLD_PERCENTAGE = 0.1;
+const FPS = 60;
+const UPDATE_INTERVAL = 1000 / FPS;
 
 const Container = styled.div`
   position: relative;
@@ -31,7 +34,6 @@ const Frame = styled.div`
 
 const SliderList = styled.ul`
   display: block
-  height: ${props => `${props.height}`}
   width: ${props => `${props.width}px`}
 `;
 
@@ -42,31 +44,46 @@ const SliderItem = styled.li`
 `;
 
 // eslint-disable-next-line react/prefer-es6-class
-const Carousel = createReactClass({
-
-  propTypes: {
+class Carousel extends Component {
+  static propTypes = {
     children: PropTypes.arrayOf(
       PropTypes.element,
     ).isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.string.isRequired,
-  },
+    speed: PropTypes.number,
+  };
 
-  mixins: [tweenState.Mixin],
+  static defaultProps = {
+    speed: 500,
+  };
 
-  getInitialState() {
-    return {
-      currentIndex: 0,
-      translateX: 0,
-      startPositionX: 0,
-      moveDeltaX: 0,
-      dragging: false,
-    };
-  },
+  state = {
+    width: 0,
+    currentIndex: 0,
+    translateX: 0,
+    startPositionX: 0,
+    moveDeltaX: 0,
+    dragging: false,
+    direction: 'right',
+  };
 
-  getSliderStyles(i) {
-    const { width, children } = this.props;
-    const { currentIndex, direction } = this.state;
+  componentDidMount() {
+    this.getContainerWidth();
+  }
+
+  componentWillUnmount() {
+    requestAnimationFrame.cancel(this.rafId);
+  }
+
+  getContainerWidth = () => {
+    const width = get(this.container.getBoundingClientRect(), 'width');
+    this.setState({
+      width,
+    });
+  }
+
+  getSliderStyles = (i) => {
+    const { children } = this.props;
+    const { width, currentIndex, direction } = this.state;
     const count = size(children);
     const last = count - 1;
 
@@ -85,18 +102,17 @@ const Carousel = createReactClass({
     return {
       left: width * i,
     };
-  },
+  }
 
-  handleTouchStart(e) {
+  handleTouchStart = (e) => {
     const { x } = getPosition(e);
     this.setState({
       startPositionX: x,
     });
-  },
+  }
 
-  handleTouchMove(e) {
-    const { width } = this.props;
-    const { currentIndex, startPositionX } = this.state;
+  handleTouchMove = (e) => {
+    const { width, currentIndex, startPositionX } = this.state;
     const { x } = getPosition(e);
 
     const deltaX = x - startPositionX;
@@ -106,28 +122,19 @@ const Carousel = createReactClass({
       direction,
       translateX: -(width * currentIndex) + deltaX,
     });
-  },
+  }
 
-  handleTouchEnd() {
-    const { width } = this.props;
-    const { moveDeltaX } = this.state;
-    const threshold = width * THRESHOLD_PERCENTAGE;
-    const moveToNext = Math.abs(moveDeltaX) > threshold;
-
+  handleTouchEnd = () => {
     this.setState({
       dragging: false,
     });
 
-    if (moveToNext) {
-      this.handleSwipe();
-    } else {
-      this.handleMisoperation();
-    }
-  },
+    this.handleSwipe();
+  }
 
-  handleSwipe() {
-    const { children, width } = this.props;
-    const { currentIndex, direction, translateX } = this.state;
+  handleSwipe = () => {
+    const { children, speed } = this.props;
+    const { width, currentIndex, direction, translateX } = this.state;
     const count = size(children);
 
     let newIndex;
@@ -146,25 +153,20 @@ const Carousel = createReactClass({
       endValue = -(width) * newIndex;
     }
 
-    this.step(0, translateX, endValue, newIndex);
+    const tweenQueue = [];
+    const updateTimes = speed / UPDATE_INTERVAL;
+    for (let i = 0; i < updateTimes; i += 1) {
+      tweenQueue.push(
+        tweenFunctions.easeInOutQuad(UPDATE_INTERVAL * i, translateX, endValue, speed),
+      );
+    }
 
-    // this.tweenState('translateX', {
-    //   easing: tweenState.easingTypes.easeInOutQuad,
-    //   duration: 500,
-    //   endValue,
-    //   onEnd: this.handleAnimationEnd.bind(null, newIndex),
-    // });
-  },
+    this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
+  }
 
-  step(i, start, end, newIndex) {
-    const { width } = this.props;
-    const translateX = start + (((end - start) / 10) * i);
-    this.setState({
-      translateX,
-    });
-    if (i < 10) {
-      this.rafId = window.requestAnimationFrame(this.step.bind(null, i + 1, start, end, newIndex));
-    } else {
+  animation = (tweenQueue, newIndex) => {
+    const { width } = this.state;
+    if (tweenQueue.length === 0) {
       this.setState({
         direction: null,
         startPositionX: 0,
@@ -172,70 +174,51 @@ const Carousel = createReactClass({
         currentIndex: newIndex,
         translateX: -(width) * newIndex,
       });
-      window.cancelAnimationFrame(this.rafId);
+      return;
     }
-  },
-
-  handleMisoperation() {
-    const { width } = this.props;
-    const { currentIndex } = this.state;
-
-    this.tweenState('translateX', {
-      easing: tweenState.easingTypes.easeInOutQuad,
-      duration: 500,
-      endValue: -(width) * currentIndex,
-      onEnd: this.handleAnimationEnd.bind(null, currentIndex),
-    });
-  },
-
-  handleAnimationEnd(newIndex) {
-    const { width } = this.props;
-
     this.setState({
-      direction: null,
-      startPositionX: 0,
-      moveDeltaX: 0,
-      currentIndex: newIndex,
-      translateX: -(width) * newIndex,
+      translateX: head(tweenQueue),
     });
-  },
 
-  handleMouseDown(e) {
+    tweenQueue.shift();
+    this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
+  }
+
+  handleMouseDown = (e) => {
     this.setState({
       dragging: true,
     });
     this.handleTouchStart(e);
-  },
+  }
 
-  handleMouseMove(e) {
+  handleMouseMove = (e) => {
     if (!this.state.dragging) {
       return;
     }
     this.handleTouchMove(e);
-  },
+  }
 
-  handleMouseUp() {
+  handleMouseUp = () => {
     if (!this.state.dragging) {
       return;
     }
     this.handleTouchEnd();
-  },
+  }
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     if (!this.state.dragging) {
       return;
     }
     this.handleTouchEnd();
-  },
+  }
 
-  renderSilderList() {
-    const { children, height, width } = this.props;
-    const { translateX } = this.state;
+  renderSilderList = () => {
+    const { children } = this.props;
+    const { translateX, width } = this.state;
     const count = size(children);
 
     return (<Frame>
       <SliderList
-        height={height}
         width={width * count}
         style={{
           transform: `translateX(${translateX}px)`,
@@ -259,16 +242,15 @@ const Carousel = createReactClass({
         ))}
       </SliderList>
     </Frame>);
-  },
+  }
 
   render() {
     return (
-      <Container {...omit(this.props, ['children', 'height', 'width'])}>
+      <Container {...omit(this.props, ['children', 'height', 'width'])} innerRef={node => (this.container = node)}>
         {this.renderSilderList()}
       </Container>
     );
-  },
-
-});
+  }
+}
 
 export default Carousel;

@@ -45,6 +45,7 @@
     "lodash": "^4.17.4",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
+    "raf": "^3.3.2",
     "react": "16.0.0-alpha.6",
     "react-dom": "^15.5.4",
     "react-native": "^0.43.4",
@@ -56,6 +57,7 @@
     "replace-bundle-webpack-plugin": "^1.0.0",
     "style-loader": "^0.18.2",
     "styled-components": "^1.4.6",
+    "tween-functions": "^1.2.0",
     "webpack": "^2.6.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-visualizer-plugin": "^0.1.11"
