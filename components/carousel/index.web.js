@@ -8,62 +8,68 @@ import map from 'lodash/map';
 import size from 'lodash/size';
 import omit from 'lodash/omit';
 import head from 'lodash/head';
+import last from 'lodash/last';
+import isEmpty from 'lodash/isEmpty';
 import { getPosition } from '../_utils/domUtils';
 
 const FPS = 60;
 const UPDATE_INTERVAL = 1000 / FPS;
 const THRESHOLD_PERCENTAGE = 0.1;
+const MISOPERATION_TIME_PERCENTAGE = THRESHOLD_PERCENTAGE * 2;
+const START_INDEX = 1;
 
 const Container = styled.div`
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  box-sizing: border-box;
+position: relative
+display: block
+width: 100%
+height: auto
+box-sizing: border-box
 `;
 
 const Frame = styled.div`
-  position: relative
-  display: block
-  overflow: hidden
-  height: 100%
-  margin: 0px
-  padding: 0px
-  box-sizing: border-box
-  -webkit-overflow-scrolling: touch
+position: relative
+display: block
+overflow: hidden
+margin: 0px
+padding: 0px
+box-sizing: border-box
+-webkit-overflow-scrolling: touch
 `;
 
-const SliderList = styled.ul`
-  display: block
-  width: ${props => `${props.width}px`}
+const SliderList = styled.div`
+display: block
+width: ${props => `${props.width}px`}
+transform: translateX(${props => `${props.translateX}px`})
+width: ${props => props.width * props.count}px
 `;
 
-const SliderItem = styled.li`
-  position: absolute
-  height: auto
-  width: ${props => `${props.width}px`}
+const SliderItem = styled.div`
+float: left
+display: block
+height: auto
+width: ${props => props.width}px
 `;
+
+const propTypes = {
+  children: PropTypes.arrayOf(
+    PropTypes.element,
+  ).isRequired,
+  speed: PropTypes.number,
+};
+
+const defaultProps = {
+  speed: 500,
+};
 
 class Carousel extends Component {
-  static propTypes = {
-    children: PropTypes.arrayOf(
-      PropTypes.element,
-    ).isRequired,
-    speed: PropTypes.number,
-  };
-
-  static defaultProps = {
-    speed: 500,
-  };
-
   state = {
     width: 0,
-    currentIndex: 0,
+    currentIndex: START_INDEX,
     translateX: 0,
     startPositionX: 0,
     moveDeltaX: 0,
     dragging: false,
-    direction: 'right',
+    direction: null,
   };
 
   componentDidMount() {
@@ -78,30 +84,19 @@ class Carousel extends Component {
     const width = get(this.container.getBoundingClientRect(), 'width');
     this.setState({
       width,
+      translateX: -(width) * START_INDEX,
     });
   }
 
-  getSliderStyles = (i) => {
-    const { children } = this.props;
-    const { width, currentIndex, direction } = this.state;
-    const count = size(children);
-    const last = count - 1;
-
-    if (currentIndex === 0 && direction === 'right') {
-      return {
-        left: i === last ? -(width) : width * i,
-      };
+  getTweenQueue = (beginValue, endValue, speed) => {
+    const tweenQueue = [];
+    const updateTimes = speed / UPDATE_INTERVAL;
+    for (let i = 0; i < updateTimes; i += 1) {
+      tweenQueue.push(
+        tweenFunctions.easeInOutQuad(UPDATE_INTERVAL * i, beginValue, endValue, speed),
+      );
     }
-
-    if (currentIndex === last && direction === 'left') {
-      return {
-        left: i === 0 ? width * count : width * i,
-      };
-    }
-
-    return {
-      left: width * i,
-    };
+    return tweenQueue;
   }
 
   handleTouchStart = (e) => {
@@ -146,35 +141,33 @@ class Carousel extends Component {
     const count = size(children);
 
     let newIndex;
-    if (direction === 'left') {
-      newIndex = currentIndex !== count - 1 ? currentIndex + 1 : 0;
-    } else {
-      newIndex = currentIndex !== 0 ? currentIndex - 1 : count - 1;
-    }
-
     let endValue;
-    if (currentIndex === count - 1 && direction === 'left') {
+    if (direction === 'left') {
+      newIndex = currentIndex !== count ? currentIndex + 1 : START_INDEX;
       endValue = -(width) * (currentIndex + 1);
-    } else if (currentIndex === 0 && direction === 'right') {
-      endValue = -(width) * (currentIndex - 1);
     } else {
-      endValue = -(width) * newIndex;
+      newIndex = currentIndex !== START_INDEX ? currentIndex - 1 : count;
+      endValue = -(width) * (currentIndex - 1);
     }
 
-    const tweenQueue = [];
-    const updateTimes = speed / UPDATE_INTERVAL;
-    for (let i = 0; i < updateTimes; i += 1) {
-      tweenQueue.push(
-        tweenFunctions.easeInOutQuad(UPDATE_INTERVAL * i, translateX, endValue, speed),
-      );
-    }
-
+    const tweenQueue = this.getTweenQueue(translateX, endValue, speed);
     this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
   }
 
+  handleMisoperation = () => {
+    const { speed } = this.props;
+    const { width, currentIndex, translateX } = this.state;
+
+    const endValue = -(width) * currentIndex;
+    const tweenQueue = this.getTweenQueue(
+      translateX, endValue, speed * MISOPERATION_TIME_PERCENTAGE,
+    );
+    this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, currentIndex));
+  }
+
   animation = (tweenQueue, newIndex) => {
-    if (tweenQueue.length === 0) {
-      this.handleAnimationEnd(newIndex);
+    if (isEmpty(tweenQueue)) {
+      this.handleOperationEnd(newIndex);
       return;
     }
 
@@ -185,27 +178,16 @@ class Carousel extends Component {
     this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
   }
 
-  handleAnimationEnd = (newIndex) => {
+  handleOperationEnd = (newIndex) => {
     const { width } = this.state;
 
     this.setState({
-      direction: null,
-      startPositionX: 0,
-      moveDeltaX: 0,
       currentIndex: newIndex,
       translateX: -(width) * newIndex,
-    });
-  }
-
-  handleMisoperation() {
-    const { width, currentIndex } = this.state;
-
-    this.setState({
-      direction: null,
       startPositionX: 0,
       moveDeltaX: 0,
-      currentIndex,
-      translateX: -(width) * currentIndex,
+      dragging: false,
+      direction: null,
     });
   }
 
@@ -240,20 +222,25 @@ class Carousel extends Component {
   renderSilderList = () => {
     const { children } = this.props;
     const { translateX, width } = this.state;
-    const count = size(children);
+    const count = size(children) + 2;
+    const firstElement = head(children);
+    const lastElement = last(children);
 
     return (<Frame>
       <SliderList
-        width={width * count}
-        style={{
-          transform: `translateX(${translateX}px)`,
-        }}
+        width={width}
+        count={count}
+        translateX={translateX}
       >
+        <SliderItem
+          width={width}
+        >
+          {lastElement}
+        </SliderItem>
         {map(children, (c, i) => (
           <SliderItem
             key={i}
             width={width}
-            style={this.getSliderStyles(i)}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
             onTouchEnd={this.handleTouchEnd}
@@ -265,17 +252,28 @@ class Carousel extends Component {
             {c}
           </SliderItem>
         ))}
+        <SliderItem
+          width={width}
+        >
+          {firstElement}
+        </SliderItem>
       </SliderList>
     </Frame>);
   }
 
   render() {
+    const rest = omit(this.props, ['children', 'speed']);
     return (
-      <Container {...omit(this.props, ['children', 'height', 'width'])} innerRef={node => (this.container = node)}>
+      <Container
+        {...rest}
+        innerRef={(node) => { this.container = node; }}
+      >
         {this.renderSilderList()}
       </Container>
     );
   }
 }
 
+Carousel.propTypes = propTypes;
+Carousel.defaultProps = defaultProps;
 export default Carousel;

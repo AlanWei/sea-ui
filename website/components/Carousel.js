@@ -42,8 +42,7 @@ class Demo extends Component {
           <div className="component-title">Normal</div>
           <Carousel
             className="component-item"
-            style={{ height: '10em' }}
-            speed={400}
+            speed={500}
           >
             {this.renderItems()}
           </Carousel>
