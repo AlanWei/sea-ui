@@ -1,7 +1,6 @@
 {
   "name": "sea-ui",
   "version": "0.2.0",
-  "description": "UI pattern library targets for Southeast Asia market with full i18n support and browser compatibility.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
