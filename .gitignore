@@ -1,5 +1,6 @@
 node_modules/
-.expo/
-npm-debug.*
+lib/
 build/
 stats/
+coverage/
+npm-debug.log

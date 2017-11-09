@@ -1,0 +1,22 @@
+@import '../styles/helpers';
+
+.seaui-modal {
+  background: $ui-white;
+  margin: 0 1em;
+  min-width: calc(100% - 2em);
+  padding: 1.25em 1em;
+  border-radius: 7px;
+
+  .modalHeader {
+    font-size: $font-size-title;
+    font-weight: bold;
+  }
+
+  .modalContent {
+    margin: 1em 0 2.5em 0;
+  }
+
+  .modalActions {
+    text-align: center;
+  }
+}
