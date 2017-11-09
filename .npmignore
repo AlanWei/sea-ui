@@ -1,5 +1,10 @@
-node_modules/
 build/
 coverage/
+components/
 src/
+.babelrc
+.eslintrc.json
+webpack.config.lib.js
+webpack.config.website.js
+yarn.lock
 npm-debug.log
