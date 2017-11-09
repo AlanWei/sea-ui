@@ -65,10 +65,10 @@ module.exports = {
     }, {
       test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
       use: ENV === 'production' ? {
-        loader: 'file-loader?name=[path][name]_[hash].[ext]',
+        loader: 'file-loader?name=[path][name].[ext]',
         options: {
-          name: '[hash:8].[ext]',
-          outputPath: 'assets/images/',
+          name: '[name].[ext]',
+          outputPath: 'assets/',
         },
       } : {
         loader: 'url-loader',
@@ -88,7 +88,7 @@ module.exports = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
-      filename: 'style.css',
+      filename: 'seaui.css',
       allChunks: true,
       disable: ENV !== 'production',
     }),
