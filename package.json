@@ -1,12 +1,15 @@
 {
-  "name": "shopback-ui",
+  "name": "sea-ui",
   "private": true,
   "version": "0.1.0",
-  "description": "ShopBack UI pattern library",
+  "description": "UI pattern library targets for Southeast Asia market with full i18n support and browser compatibility.",
   "main": "lib/index.js",
-  "repository": "git@github.com:shopback/shopback-ui.git",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/AlanWei/sea-ui"
+  },
   "author": "ShopBack <tech@shopback.com>",
-  "license": "SEE LICENSE.md",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --colors --config webpack.config.website.js",
     "build": "cross-env NODE_ENV=production webpack -p --progress --config webpack.config.lib.js",
