@@ -38,8 +38,8 @@
     }
   }
   .body {
-    @include flex-center;
-    padding: 70px 0;
+    display: flex;
+    padding: 70px 4% 170px 4%;
     .demo {
       width: 377px;
       height: 620px;

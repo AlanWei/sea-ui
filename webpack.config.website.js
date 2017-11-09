@@ -117,7 +117,7 @@ module.exports = {
       { from: 'favicon.ico' },
     ]),
     new HtmlWebpackPlugin({
-      title: 'SEA UI',
+      title: 'SEA UI - Design Specification for SouthEast Asia',
       filename: './index.html',
       template: './index.ejs',
     }),
