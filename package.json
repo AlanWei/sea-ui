@@ -1,7 +1,6 @@
 {
-  "name": "shopback-ui-mobile",
+  "name": "sea-ui",
   "version": "0.1.0",
-  "private": true,
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",

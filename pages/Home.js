@@ -41,7 +41,7 @@ const StyledVersion = styled.Text`
 
 class Home extends Component {
   static navigationOptions = {
-    title: 'ShopBack UI Mobile',
+    title: 'SEA UI',
   };
 
   render() {
@@ -50,7 +50,7 @@ class Home extends Component {
       <StyledView>
         <StyledLogo source={LOGO} resizeMode="contain" />
         <StyledTitle>
-          ShopBack UI Mobile
+          SEA UI Mobile
         </StyledTitle>
         <ListView
           data={TYPE}
