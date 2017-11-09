@@ -6,15 +6,16 @@
   padding-bottom: 3em;
   .header {
     padding: 1.5em 1em;
+    display: flex;
+    align-items: center;
     .list {
-      font-size: 1.2em;
-      border-right: 1px solid $ui-text-lighten;
-      padding-right: 1em;
-      color: $ui-text-lighten;
+      height: 1.2em;
+      padding-right: 0.8em;
     }
     .componentName {
-      padding-left: 1em;
+      padding-left: 0.8em;
       font-size: 1.2em;
+      border-left: 1px solid $ui-text-lighten;
     }
   }
 }

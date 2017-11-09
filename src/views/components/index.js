@@ -26,6 +26,7 @@ class Components extends Component {
     return (
       <div className="view-components">
         <h1 className="title">SEA MOBILE</h1>
+        <div className="subtitle">Mobile UI Library by ShopBack UED</div>
         {this.renderComponentList()}
       </div>
     );

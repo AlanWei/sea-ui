@@ -6,6 +6,7 @@ import find from 'lodash/find';
 import isNil from 'lodash/isNil';
 import get from 'lodash/get';
 import components from 'components/componentsFlatMap';
+import home from '../../assets/home.svg';
 
 import './style.scss';
 
@@ -35,7 +36,7 @@ class ComponentContainer extends Component {
   renderHeader = () => (
     <header className="header">
       <Link to="/components">
-        <span className="list">List</span>
+        <img className="list" src={home} alt="" />
       </Link>
       <span className="componentName">{get(this.state.component, 'title', '')}</span>
     </header>
