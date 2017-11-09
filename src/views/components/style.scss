@@ -29,6 +29,7 @@
     .component {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       height: 2.5em;
       font-size: 1em;
       color: $ui-black-lighten;

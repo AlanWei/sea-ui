@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import map from 'lodash/map';
 import components from 'components/componentsMap';
+import next from '../../assets/next.svg';
 import './style.scss';
 
 class Components extends Component {
@@ -15,7 +16,8 @@ class Components extends Component {
             to={`/components/${component.name}`}
             className="component"
           >
-            {component.title}
+            <span>{component.title}</span>
+            <img src={next} alt="" />
           </Link>
         ))}
       </div>
