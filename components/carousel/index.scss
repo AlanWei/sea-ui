@@ -1,0 +1,54 @@
+@import '../styles/helpers';
+
+.seaui-carousel {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  position: relative;
+  width: 100%;
+
+  .sliderWrapper {
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  .slider {
+    display: block;
+    overflow: hidden;
+  }
+
+  .slide {
+    display: block;
+    float: left;
+    height: auto;
+  }
+
+  .dots {
+    height: 1.5em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dot {
+    background: $ui-black-darken;
+    border-radius: 50%;
+    display: inline-block;
+    height: 4px;
+    margin: 0 2px;
+    opacity: 0.5;
+    vertical-align: middle;
+    width: 4px;
+  }
+
+  .dot-active {
+    background: $ui-black-darken;
+    height: 6px;
+    opacity: 1;
+    width: 6px;
+  }
+}

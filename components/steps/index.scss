@@ -1,0 +1,48 @@
+@import '../styles/helpers';
+
+.seaui-steps {
+  .step {
+    display: inline-block;
+    .stepCircle {
+      background-color: $ui-white;
+      border: 1px solid $ui-text-lighten;
+      border-radius: 50%;
+      color: $ui-text-lighten;
+      display: inline-block;
+      font-size: $font-size-footnote;
+      height: 1.67em;
+      line-height: calc(1.67em - 2px);
+      margin-left: 4px;
+      margin-right: 4px;
+      text-align: center;
+      width: 1.67em;
+    }
+    .completeIcon {
+      font-size: $font-size-footnote;
+      vertical-align: middle;
+      width: 1.67em;
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+    .connectLine {
+      border-bottom: 1px dashed $ui-white-darken-5;
+      display: inline-block;
+      vertical-align: middle;
+      width: 3em;
+    }
+    .isFirst {
+      margin-left: 0;
+      margin-right: 4px;
+    }
+    .isActive {
+      background-color: $ui-green;
+      border: 0;
+      color: $ui-white;
+      line-height: 1.67em;
+    }
+    .isLast {
+      margin-left: 4px;
+      margin-right: 0;
+    }
+  }
+}

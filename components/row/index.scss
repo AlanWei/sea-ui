@@ -1,0 +1,20 @@
+@import '../styles/helpers';
+
+.sea-row {
+  height: 3em;
+  line-height: 3em;
+  padding-left: 3em;
+  position: relative;
+  width: 100%;
+  background-color: $ui-white;
+
+  &:hover {
+    background-color: $ui-white-darken-4;
+  }
+  .rowIcon {
+    left: 1em;
+    position: absolute;
+    top: 0.75em;
+    width: 1.5em;
+  }
+}

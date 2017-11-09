@@ -1,0 +1,48 @@
+@import "../../styles/helpers";
+
+.view-componentContainer {
+  min-height: 100vh;
+  background-color: $ui-background;
+  padding-bottom: 3em;
+  .header {
+    padding: 1.5em 1em;
+    .list {
+      font-size: 1.2em;
+      border-right: 1px solid $ui-text-lighten;
+      padding-right: 1em;
+      color: $ui-text-lighten;
+    }
+    .componentName {
+      padding-left: 1em;
+      font-size: 1.2em;
+    }
+  }
+}
+
+// component
+.component-content {
+  padding: 0 1em;
+  .component-section {
+    margin-top: 1.5em;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .component-title {
+    color: $ui-black;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  .component-subtitle {
+    color: $ui-black-lighten;
+    margin-bottom: .5em;
+    font-size: .8em;
+  }
+  .component-item {
+    display: block;
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

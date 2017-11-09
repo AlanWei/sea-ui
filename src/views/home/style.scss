@@ -1,0 +1,62 @@
+@import "../../styles/helpers";
+
+.view-home {
+  .header {
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    background-color: $ui-white;
+    padding: 0 4%;
+    border-bottom: 1px solid $ui-border;
+    .title {
+      color: $ui-blue;
+    }
+    .menu {
+      float: right;
+      .menuItem {
+        padding: 0 20px;
+        margin-top: -2px;
+        cursor: pointer;
+        list-style: none;
+        float: left;
+        &:hover {
+          color: $ui-blue;
+          border-bottom: 2px solid $ui-blue;
+          a {
+            color: $ui-blue;
+          }
+        }
+      }
+      .menuItem-active {
+        color: $ui-blue;
+        border-bottom: 2px solid $ui-blue;
+        a {
+          color: $ui-blue;
+        }
+      }
+    }
+  }
+  .body {
+    @include flex-center;
+    padding: 70px 0;
+    .demo {
+      width: 377px;
+      height: 620px;
+      box-shadow: 0 0 10px $ui-white-darken-5;
+      margin-right: 75px;
+      .iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    @include flex-center;
+    height: 100px;
+    background-color: $ui-white;
+  }
+}

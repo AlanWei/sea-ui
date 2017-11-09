@@ -1,0 +1,119 @@
+@import '../styles/helpers';
+
+@mixin FlatButton($uiColor, $color, $color-lighten) {
+  &.seaui-button-#{$uiColor} {
+    background: $ui-transparent;
+    border: 1px $ui-transparent solid;
+    color: $color;
+
+    &:hover {
+      color: $color-lighten;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+@mixin FillButton($uiColor, $color, $color-lighten) {
+  &.seaui-button-#{$uiColor} {
+    background: $color;
+    border: 1px $color solid;
+    color: $ui-white;
+    font-weight: 600;
+
+    &:hover {
+      background: $color-lighten;
+      border-color: $color-lighten;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+@mixin GhostButton($uiColor, $color, $color-lighten) {
+  &.seaui-button-#{$uiColor} {
+    background: $ui-transparent;
+    border: 1px $color solid;
+    color: $color;
+    font-weight: 600;
+
+    &:hover {
+      border-color: $color-lighten;
+      color: $color-lighten;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.seaui-button {
+  background: $ui-transparent;
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  line-height: 1em;
+  text-align: center;
+  user-select: text;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    cursor: not-allowed;
+  }
+
+  &.seaui-button-xs {
+    font-size: 0.75em;
+    padding: 0.5em 0.67em;
+  }
+
+  &.seaui-button-s {
+    font-size: 0.875em;
+    padding: 0.56em 1.14em;
+  }
+
+  &.seaui-button-md {
+    font-size: 0.875em;
+    padding: 0.86em 1.14em;
+  }
+
+  &.seaui-button-lg {
+    font-size: 1.125em;
+    padding: 1em 1.3em;
+  }
+}
+
+.seaui-button-stretch {
+  width: 100%;
+}
+
+.seaui-button-fill {
+  @include FillButton("red", $ui-red, $ui-red-lighten);
+  @include FillButton("blue", $ui-blue, $ui-blue-lighten);
+  @include FillButton("green", $ui-green, $ui-green-lighten);
+  @include FillButton("black", $ui-black, $ui-black-lighten);
+  @include FillButton("white", $ui-white, $ui-white-darken-2);
+
+  &.seaui-white {
+    color: $ui-red;
+  }
+}
+
+.seaui-button-flat {
+  @include FlatButton("red", $ui-red, $ui-red-lighten);
+  @include FlatButton("blue", $ui-blue, $ui-blue-lighten);
+  @include FlatButton("green", $ui-green, $ui-green-lighten);
+  @include FlatButton("white", $ui-white, $ui-white-darken-2);
+}
+
+.seaui-button-ghost {
+  @include GhostButton("red", $ui-red, $ui-red-lighten);
+  @include GhostButton("blue", $ui-blue, $ui-blue-lighten);
+  @include GhostButton("green", $ui-green, $ui-green-lighten);
+  @include GhostButton("white", $ui-white, $ui-white-darken-2);
+}

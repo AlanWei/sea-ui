@@ -1,0 +1,26 @@
+@import '../styles/helpers';
+
+.seaui-notificationToast {
+  @include clearfix;
+
+  background: $ui-black-darken;
+  color: $ui-white;
+  line-height: 1.43;
+  padding: 1em 1.5em 0;
+  width: 100%;
+
+  .toastText {
+    float: left;
+    font-size: 0.875em;
+    margin-bottom: 1em;
+  }
+
+  .toastButton {
+    color: $ui-green-darken;
+    float: right;
+    font-size: 0.875em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    padding: 0;
+  }
+}

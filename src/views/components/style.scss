@@ -1,0 +1,37 @@
+@import "../../styles/helpers";
+
+.view-components {
+  min-height: 100vh;
+  background-color: $ui-background;
+  padding: 1em;
+  .title {
+    font-weight: normal;
+    margin: 1em 0;
+    font-size: 2em;
+  }
+  .componentGroup {
+    background-color: $ui-white;
+    border-radius: 2px;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    .groupName {
+      display: flex;
+      align-items: center;
+      height: 3em;
+      font-size: 1em;
+      color: $ui-black-darken;
+      margin-bottom: 0.5em;
+    }
+    .component {
+      display: flex;
+      align-items: center;
+      height: 2.5em;
+      font-size: 1em;
+      color: $ui-black-lighten;
+      border-bottom: 1px solid $ui-border;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
