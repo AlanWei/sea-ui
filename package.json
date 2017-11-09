@@ -1,7 +1,7 @@
 {
   "name": "shopback-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ShopBack UI pattern library",
   "main": "lib/index.js",
   "repository": "git@github.com:shopback/shopback-ui.git",
