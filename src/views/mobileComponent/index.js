@@ -14,7 +14,7 @@ const propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-class ComponentContainer extends Component {
+class MobileComponent extends Component {
   state = {
     component: null,
   }
@@ -35,7 +35,7 @@ class ComponentContainer extends Component {
 
   renderHeader = () => (
     <header className="header">
-      <Link to="/components">
+      <Link to="/mobile">
         <img className="list" src={home} alt="" />
       </Link>
       <span className="componentName">{get(this.state.component, 'title', '')}</span>
@@ -60,5 +60,5 @@ class ComponentContainer extends Component {
   }
 }
 
-ComponentContainer.propTypes = propTypes;
-export default withRouter(ComponentContainer);
+MobileComponent.propTypes = propTypes;
+export default withRouter(MobileComponent);

@@ -1,6 +1,6 @@
 import Home from 'views/home';
-import Components from 'views/components';
-import ComponentContainer from 'views/componentContainer';
+import Mobile from 'views/mobile';
+import MobileComponent from 'views/mobileComponent';
 
 const routes = [{
   path: '/',
@@ -9,16 +9,16 @@ const routes = [{
   isMenu: true,
   component: Home,
 }, {
-  path: '/components',
+  path: '/mobile',
   exact: true,
-  name: 'Components',
-  isMenu: false,
-  component: Components,
+  name: 'Mobile',
+  isMenu: true,
+  component: Mobile,
 }, {
-  path: '/components/:componentName',
+  path: '/mobile/:componentName',
   exact: true,
   isMenu: false,
-  component: ComponentContainer,
+  component: MobileComponent,
 }];
 
 export default routes;

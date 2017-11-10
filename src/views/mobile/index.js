@@ -5,7 +5,7 @@ import components from 'components/componentsMap';
 import next from '../../assets/next.svg';
 import './style.scss';
 
-class Components extends Component {
+class Mobile extends Component {
   renderComponentList = () => (
     map(components, (componentGroup, idx) => (
       <div className="componentGroup" key={idx}>
@@ -13,7 +13,7 @@ class Components extends Component {
         {map(componentGroup.components, (component, index) => (
           <Link
             key={index}
-            to={`/components/${component.name}`}
+            to={`/mobile/${component.name}`}
             className="component"
           >
             <span>{component.title}</span>
@@ -35,4 +35,4 @@ class Components extends Component {
   }
 }
 
-export default Components;
+export default Mobile;

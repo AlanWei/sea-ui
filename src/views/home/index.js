@@ -43,9 +43,6 @@ class Home extends Component {
 
   renderContent = () => (
     <div className="body">
-      <div className="demo">
-        <iframe className="iframe" title="components" src="/components" />
-      </div>
     </div>
   )
 
