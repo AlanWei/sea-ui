@@ -1,6 +1,8 @@
 @import "../../styles/helpers";
 
 .header {
+  position: fixed;
+  top: 0;
   height: 80px;
   line-height: 80px;
   width: 100%;

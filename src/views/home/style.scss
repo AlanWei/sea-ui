@@ -1,7 +1,9 @@
 @import "../../styles/helpers";
 
 .view-home {
+  height: 100%;
   .content {
+    height: 100%;
     @include flex-center;
   }
 }

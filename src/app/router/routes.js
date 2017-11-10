@@ -1,4 +1,5 @@
 import Home from 'views/home';
+import Components from 'views/components';
 import Mobile from 'views/mobile';
 import MobileComponent from 'views/mobileComponent';
 
@@ -13,6 +14,7 @@ const routes = [{
   exact: true,
   name: 'Components',
   isMenu: true,
+  component: Components,
 }, {
   path: '/mobile',
   exact: true,
