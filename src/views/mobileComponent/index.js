@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import find from 'lodash/find';
 import isNil from 'lodash/isNil';
 import get from 'lodash/get';
-import components from 'components/componentsFlatMap';
+import components from 'demos/mobileComponentsFlatMap';
 import home from '../../assets/home.svg';
 
 import './style.scss';

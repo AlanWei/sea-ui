@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Notification } from '../../components';
+import { Notification } from '../../../components';
 
 class Demo extends Component {
   state = {

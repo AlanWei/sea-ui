@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps } from '../../components';
+import { Steps } from '../../../components';
 
 const STEPS = [{
   text: '1',

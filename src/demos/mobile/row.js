@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Row } from '../../components';
-import faq from '../assets/faq.svg';
+import faq from 'assets/faq.svg';
+import { Row } from '../../../components';
 
 class Demo extends Component {
   render() {

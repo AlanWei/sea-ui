@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import map from 'lodash/map';
-import { Carousel } from '../../components/index';
+import { Carousel } from '../../../components/index';
 
 const RED = '#FF4E4E';
 const BLUE = '#286FDC';

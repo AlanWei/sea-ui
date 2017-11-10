@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import map from 'lodash/map';
-import components from 'components/componentsMap';
+import components from 'demos/mobileComponentsMap';
 import next from '../../assets/next.svg';
 import './style.scss';
 

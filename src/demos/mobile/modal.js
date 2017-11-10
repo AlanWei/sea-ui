@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button } from '../../components';
+import { Modal, Button } from '../../../components';
 
 class Demo extends Component {
   renderActions = () => (

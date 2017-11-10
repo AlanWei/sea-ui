@@ -1,9 +1,9 @@
-import Button from './button';
-import Carousel from './carousel';
-import Modal from './modal';
-import Notification from './notification';
-import Row from './row';
-import Steps from './steps';
+import Button from './mobile/button';
+import Carousel from './mobile/carousel';
+import Modal from './mobile/modal';
+import Notification from './mobile/notification';
+import Row from './mobile/row';
+import Steps from './mobile/steps';
 
 const componentsFlatMap = [{
   name: 'button',
