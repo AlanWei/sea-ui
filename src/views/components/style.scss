@@ -1,5 +1,21 @@
 @import "../../styles/helpers";
 
 .view-components {
-
+  height: 100%;
+  .content {
+    height: 100%;
+    padding: 80px 48px 100px 48px;
+    background: $ui-background;
+    .container {
+      height: 100%;
+      padding: 24px 0;
+      display: flex;
+      .sidebar {
+        flex: 1;
+      }
+      .main {
+        flex: 4;
+      }
+    }
+  }
 }

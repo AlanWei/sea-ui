@@ -4,6 +4,7 @@
   height: 100%;
   .content {
     height: 100%;
-    @include flex-center;
+    padding: 80px 48px 100px 48px;
+    background: $ui-background;
   }
 }
