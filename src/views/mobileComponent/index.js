@@ -52,7 +52,7 @@ class MobileComponent extends Component {
 
   render() {
     return (
-      <div className="view-componentContainer">
+      <div className="view-mobileComponent">
         {this.renderHeader()}
         {this.renderComponent()}
       </div>

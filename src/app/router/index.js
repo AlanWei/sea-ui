@@ -11,7 +11,7 @@ const propTypes = {
 
 const Router = props => (
   <ConnectedRouter history={props.history}>
-    <div>
+    <div className="main-view">
       {map(routes, (route, idx) => (
         <Route key={idx} {...route} />
       ))}

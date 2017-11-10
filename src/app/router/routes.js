@@ -9,6 +9,11 @@ const routes = [{
   isMenu: true,
   component: Home,
 }, {
+  path: '/components',
+  exact: true,
+  name: 'Components',
+  isMenu: true,
+}, {
   path: '/mobile',
   exact: true,
   name: 'Mobile',

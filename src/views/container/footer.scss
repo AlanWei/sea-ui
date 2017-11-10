@@ -1,0 +1,10 @@
+@import "../../styles/helpers";
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  @include flex-center;
+  height: 100px;
+  background-color: $ui-white;
+}

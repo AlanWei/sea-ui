@@ -1,0 +1,38 @@
+@import "../../styles/helpers";
+
+.header {
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+  background-color: $ui-white;
+  padding: 0 4%;
+  border-bottom: 1px solid $ui-border;
+  .title {
+    color: $ui-blue;
+    font-size: $font-size-title;
+  }
+  .menu {
+    float: right;
+    .menuItem {
+      padding: 0 20px;
+      margin-top: -2px;
+      cursor: pointer;
+      list-style: none;
+      float: left;
+      &:hover {
+        color: $ui-blue;
+        border-bottom: 2px solid $ui-blue;
+        a {
+          color: $ui-blue;
+        }
+      }
+    }
+    .menuItem-active {
+      color: $ui-blue;
+      border-bottom: 2px solid $ui-blue;
+      a {
+        color: $ui-blue;
+      }
+    }
+  }
+}
