@@ -24,9 +24,13 @@ class Header extends Component {
               'menuItem-active': path === this.props.location.pathname,
             });
             return (
-              <li className={classes} key={path}>
-                <Link to={route.path}>{route.name}</Link>
-              </li>
+              <Link
+                to={route.path}
+                className={classes}
+                key={path}
+              >
+                <li>{route.name}</li>
+              </Link>
             );
           }
           return null;
