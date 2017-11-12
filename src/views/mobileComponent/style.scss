@@ -4,8 +4,8 @@
   min-height: 100vh;
   background-color: $ui-background;
   padding-bottom: 3em;
-  .header {
-    padding: 1.5em 1em;
+  .component-header {
+    padding: 1.25em 1em;
     display: flex;
     align-items: center;
     .list {
@@ -32,7 +32,7 @@
   .component-title {
     color: $ui-black;
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
   .component-subtitle {
     color: $ui-black-lighten;

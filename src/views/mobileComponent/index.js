@@ -34,7 +34,7 @@ class MobileComponent extends Component {
   }
 
   renderHeader = () => (
-    <header className="header">
+    <header className="component-header">
       <Link to="/mobile">
         <img className="list" src={home} alt="" />
       </Link>
