@@ -27,7 +27,7 @@ class Mobile extends Component {
   render() {
     return (
       <div className="view-mobile">
-        <h1 className="title">SEA MOBILE</h1>
+        <h1 className="title">SEA UI MOBILE</h1>
         <div className="subtitle">Mobile UI Library by ShopBack UED</div>
         {this.renderComponentList()}
       </div>
