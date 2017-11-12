@@ -57,6 +57,7 @@
   line-height: 1em;
   text-align: center;
   user-select: text;
+  @include ripple;
 
   &:hover {
     cursor: pointer;
