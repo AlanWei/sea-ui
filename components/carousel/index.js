@@ -166,6 +166,7 @@ class Carousel extends Component {
   }
 
   handleMouseDown = (evt) => {
+    evt.preventDefault();
     this.setState({
       dragging: true,
     });
