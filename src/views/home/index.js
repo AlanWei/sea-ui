@@ -8,8 +8,10 @@ class Home extends Component {
   renderContent = () => (
     <div className="content">
       <div className="mainContent">
+        {/*
         UI library with fully i18n support, compatible with all major
         browsers and customised components for both desktop and mobile.
+        */}
       </div>
     </div>
   )
