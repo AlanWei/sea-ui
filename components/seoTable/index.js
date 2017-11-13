@@ -36,10 +36,12 @@ class SeoTable extends Component {
   render() {
     const classes = classnames('seaui-seoTable', this.props.className);
     return (
-      <table className={classes}>
-        {this.renderTh()}
-        {this.renderTd()}
-      </table>
+      <div className={classes}>
+        <table>
+          {this.renderTh()}
+          {this.renderTd()}
+        </table>
+      </div>
     );
   }
 }
