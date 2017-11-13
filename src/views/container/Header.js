@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import map from 'lodash/map';
+import includes from 'lodash/includes';
 import { routes } from 'app';
 
 import './header.scss';
@@ -21,7 +22,8 @@ class Header extends Component {
             const { path } = route;
             const classes = classnames({
               menuItem: true,
-              'menuItem-active': path === this.props.location.pathname,
+              'home-active': path === this.props.location.pathname,
+              'menuItem-active': includes(this.props.location.pathname, path) && path !== '/',
             });
             return (
               <Link

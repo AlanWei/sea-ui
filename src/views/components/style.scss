@@ -10,11 +10,39 @@
       height: 100%;
       padding: 24px 0;
       display: flex;
+      border-radius: 4px;
       .sidebar {
         flex: 1;
+        background: $ui-white;
+        padding: 1.5em 0;
+        border-right: 1px solid $ui-border;
+        .componentGroup {
+          .groupName {
+            display: block;
+            font-size: 1em;
+            color: $ui-black-darken;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding-left: 1.5em;
+          }
+          .component {
+            display: block;
+            color: $ui-black-lighten;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding-left: 3em;
+          }
+          .groupName-active, .component-active {
+            color: $ui-blue;
+            border-right: 2px solid $ui-blue;
+            background: rgba(40, 111, 220, 0.1);
+          }
+        }
       }
       .main {
         flex: 4;
+        background: $ui-white;
+        padding: 1.5em 0;
       }
     }
   }

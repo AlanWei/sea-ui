@@ -29,7 +29,7 @@
         }
       }
     }
-    .menuItem-active {
+    .menuItem-active, .home-active {
       color: $ui-blue;
       border-bottom: 2px solid $ui-blue;
       a {
