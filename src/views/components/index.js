@@ -4,7 +4,11 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import map from 'lodash/map';
+import find from 'lodash/find';
+import isNil from 'lodash/isNil';
+import get from 'lodash/get';
 import components from 'demos/desktopComponentsMap';
+import componentsMap from 'demos/desktopComponentsFlatMap';
 import Header from '../container/Header';
 import Footer from '../container/Footer';
 
@@ -16,6 +20,30 @@ const propTypes = {
 };
 
 class Components extends Component {
+  state = {
+    component: null,
+  }
+
+  componentWillMount() {
+    this.findComponent(this.props);
+  }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.match.params.componentName !== nextProps.match.params.componentName) {
+      this.findComponent(nextProps);
+    }
+  }
+
+  findComponent = (props) => {
+    const component = find(componentsMap, comp => (
+      comp.name === get(props.match, 'params.componentName', '')
+    ));
+
+    this.setState({
+      component,
+    });
+  }
+
   renderSideBar = () => {
     const rootClasses = classnames({
       groupName: true,
@@ -55,8 +83,18 @@ class Components extends Component {
     );
   };
 
+  renderComponent = () => {
+    const Demo = get(this.state.component, 'component');
+    if (isNil(Demo)) {
+      return null;
+    }
+    return <Demo />;
+  }
+
   renderMainContent = () => (
-    <div className="main" />
+    <div className="main">
+      {this.renderComponent()}
+    </div>
   );
 
   render() {

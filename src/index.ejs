@@ -8,6 +8,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
     <% for (var chunk in htmlWebpackPlugin.files.css) { %>
       <link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">

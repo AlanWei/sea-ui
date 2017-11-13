@@ -4,7 +4,15 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  @include flex-center;
+  padding: 0 4%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
   height: 100px;
   background-color: $ui-white;
+  font-size: $font-size-footnote;
+  .team {
+    margin-top: 1em;
+  }
 }

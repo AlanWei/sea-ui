@@ -40,7 +40,7 @@ class Demo extends Component {
 
   render() {
     return (
-      <div className="component-content">
+      <div className="mobileComponent-content">
         {this.renderColorSection()}
         {this.renderSizeSection()}
         {this.renderTypeSection()}

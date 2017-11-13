@@ -12,7 +12,7 @@ const STEPS = [{
 class Demo extends Component {
   render() {
     return (
-      <div className="component-content">
+      <div className="mobileComponent-content">
         <div className="component-section">
           <div className="component-title">Different Active Step</div>
           <div className="component-subtitle">0 (default)</div>

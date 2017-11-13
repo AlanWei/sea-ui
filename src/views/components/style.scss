@@ -7,20 +7,21 @@
     padding: 80px 48px 100px 48px;
     background: $ui-background;
     .container {
-      height: 100%;
+      min-height: 100%;
+      width: 100%;
       padding: 24px 0;
       display: flex;
       border-radius: 4px;
       .sidebar {
-        flex: 1;
         background: $ui-white;
         padding: 1.5em 0;
         border-right: 1px solid $ui-border;
         .componentGroup {
+          width: 14em;
           .groupName {
             display: block;
             font-size: 1em;
-            color: $ui-black-darken;
+            color: $ui-black;
             height: 2.5em;
             line-height: 2.5em;
             padding-left: 1.5em;
@@ -40,7 +41,7 @@
         }
       }
       .main {
-        flex: 4;
+        flex: 1;
         background: $ui-white;
         padding: 1.5em 0;
       }

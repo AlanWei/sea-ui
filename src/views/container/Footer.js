@@ -6,7 +6,8 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        Copyright © 2017
+        <div>Copyright © 2017</div>
+        <div className="team">Created by ShopBack UED</div>
       </footer>
     );
   }

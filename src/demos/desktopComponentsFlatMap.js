@@ -1,6 +1,6 @@
 import Button from './mobile/button';
 import Carousel from './mobile/carousel';
-import SeoTable from './mobile/seoTable';
+import SeoTable from './desktop/seoTable';
 import Steps from './mobile/steps';
 
 const componentsFlatMap = [{

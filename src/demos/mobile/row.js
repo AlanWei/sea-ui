@@ -5,7 +5,7 @@ import { Row } from '../../../components';
 class Demo extends Component {
   render() {
     return (
-      <div className="component-content">
+      <div className="mobileComponent-content">
         <div className="component-section">
           <div className="component-title">Plain Text</div>
           <Row

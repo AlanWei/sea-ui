@@ -19,31 +19,3 @@
     }
   }
 }
-
-// component
-.component-content {
-  padding: 0 1em;
-  .component-section {
-    margin-top: 1.25em;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-  .component-title {
-    color: $ui-black;
-    font-weight: bold;
-    margin-bottom: 0.75em;
-  }
-  .component-subtitle {
-    color: $ui-black-lighten;
-    margin-bottom: .5em;
-    font-size: .8em;
-  }
-  .component-item {
-    display: block;
-    margin-bottom: 1em;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}

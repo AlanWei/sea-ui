@@ -1,22 +1,90 @@
-@import 'helpers';
-@import 'skeleton';
+@import "helpers";
+@import "skeleton";
 html,
 body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: 'PingFang SC', 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	font-size: 16px;
-	color: $ui-text;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-	#app {
-		height: 100%;
-	}
-	.main-view {
-		height: 100%;
-	}
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, 'PingFang SC', 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $ui-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  #app {
+    height: 100%;
+  }
+  .main-view {
+    height: 100%;
+
+    .desktopComponent-content {
+      padding: 0 2em;
+      .title {
+        font-size: 2em;
+        color: $ui-text;
+        margin-bottom: 1em;
+      }
+      .desc {
+        color: $ui-text-lighten;
+        margin-bottom: 2em;
+      }
+      .examples {
+        color: $ui-text;
+        font-size: 1.5em;
+        margin-bottom: 0.75em;
+      }
+      .component-section {
+        margin-top: 1.25em;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      .component-title {
+        color: $ui-black;
+        font-weight: bold;
+        margin-bottom: 0.75em;
+      }
+      .component-subtitle {
+        color: $ui-black-lighten;
+        margin-bottom: 0.5em;
+        font-size: 0.8em;
+      }
+      .component-item {
+        display: block;
+        margin-bottom: 1em;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .mobileComponent-content {
+      padding: 0 1em;
+      .component-section {
+        margin-top: 1.25em;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      .component-title {
+        color: $ui-black;
+        font-weight: bold;
+        margin-bottom: 0.75em;
+      }
+      .component-subtitle {
+        color: $ui-black-lighten;
+        margin-bottom: 0.5em;
+        font-size: 0.8em;
+      }
+      .component-item {
+        display: block;
+        margin-bottom: 1em;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
