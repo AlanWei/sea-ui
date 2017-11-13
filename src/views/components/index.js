@@ -5,19 +5,13 @@ import Footer from '../container/Footer';
 import './style.scss';
 
 class Components extends Component {
-  renderSideBar = () => {
-    return (
-      <div className="sidebar">
-      </div>
-    );
-  }
+  renderSideBar = () => (
+    <div className="sidebar" />
+  );
 
-  renderMainContent = () => {
-    return (
-      <div className="main">
-      </div>
-    );
-  }
+  renderMainContent = () => (
+    <div className="main" />
+  );
 
   render() {
     return (

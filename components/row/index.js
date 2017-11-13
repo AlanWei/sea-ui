@@ -22,7 +22,9 @@ const defaultProps = {
 
 class Row extends Component {
   render() {
-    const { imgSrc, imgAlt, text, url, openNewTab } = this.props;
+    const {
+      imgSrc, imgAlt, text, url, openNewTab,
+    } = this.props;
     const rest = omit(this.props, ['className', 'style', ...Object.keys(defaultProps)]);
     const classes = classnames('sea-row', this.props.className);
     if (url !== '') {

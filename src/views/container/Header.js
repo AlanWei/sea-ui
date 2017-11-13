@@ -18,14 +18,14 @@ class Header extends Component {
       {
         map(routes, (route) => {
           if (route.isMenu) {
-            const path = route.path;
+            const { path } = route;
             const classes = classnames({
               menuItem: true,
               'menuItem-active': path === this.props.location.pathname,
             });
             return (
               <Link
-                to={route.path}
+                to={path}
                 className={classes}
                 key={path}
               >

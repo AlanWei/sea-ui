@@ -21,10 +21,8 @@ const MISOPERATION_TIME_PERCENTAGE = THRESHOLD_PERCENTAGE * 2;
 const START_INDEX = 1;
 
 const propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.arrayOf(
-    PropTypes.element,
-  ).isRequired,
+  className: PropTypes.string.is,
+  children: PropTypes.arrayOf(PropTypes.element),
   speed: PropTypes.number,
 };
 
@@ -111,7 +109,9 @@ class Carousel extends Component {
 
   handleSwipe = () => {
     const { children, speed } = this.props;
-    const { width, currentIndex, direction, translateX } = this.state;
+    const {
+      width, currentIndex, direction, translateX,
+    } = this.state;
     const count = size(children);
 
     let newIndex;
@@ -205,46 +205,48 @@ class Carousel extends Component {
       transform: `translateX(${translateX}px)`,
       width: width * count,
     });
-    return (<div
-      className="sliderWrapper"
-    >
+    return (
       <div
-        className="slider"
-        style={sliderStyle}
+        className="sliderWrapper"
       >
         <div
-          className="slide"
-          role="presentation"
-          style={{ width }}
+          className="slider"
+          style={sliderStyle}
         >
-          {lastElement}
-        </div>
-        {map(children, (c, i) => (
           <div
             className="slide"
             role="presentation"
-            key={i}
             style={{ width }}
-            onTouchStart={this.handleTouchStart}
-            onTouchMove={this.handleTouchMove}
-            onTouchEnd={this.handleTouchEnd}
-            onMouseDown={this.handleMouseDown}
-            onMouseMove={this.handleMouseMove}
-            onMouseUp={this.handleMouseUp}
-            onMouseLeave={this.handleMouseLeave}
           >
-            {c}
+            {lastElement}
           </div>
-        ))}
-        <div
-          className="slide"
-          role="presentation"
-          style={{ width }}
-        >
-          {firstElement}
+          {map(children, (c, i) => (
+            <div
+              className="slide"
+              role="presentation"
+              key={i}
+              style={{ width }}
+              onTouchStart={this.handleTouchStart}
+              onTouchMove={this.handleTouchMove}
+              onTouchEnd={this.handleTouchEnd}
+              onMouseDown={this.handleMouseDown}
+              onMouseMove={this.handleMouseMove}
+              onMouseUp={this.handleMouseUp}
+              onMouseLeave={this.handleMouseLeave}
+            >
+              {c}
+            </div>
+          ))}
+          <div
+            className="slide"
+            role="presentation"
+            style={{ width }}
+          >
+            {firstElement}
+          </div>
         </div>
       </div>
-    </div>);
+    );
   }
 
   renderDots = () => {
