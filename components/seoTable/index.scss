@@ -1,0 +1,13 @@
+@import '../styles/helpers';
+
+.seaui-seoTable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background: $ui-white;
+  td, th {
+    border: 1px solid $ui-border;
+    text-align: left;
+    padding: 0.375em 0.75em;
+  }
+}

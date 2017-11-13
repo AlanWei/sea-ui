@@ -3,6 +3,7 @@ import Carousel from './mobile/carousel';
 import Modal from './mobile/modal';
 import Notification from './mobile/notification';
 import Row from './mobile/row';
+import SeoTable from './mobile/seoTable';
 import Steps from './mobile/steps';
 
 const componentsMap = [{
@@ -22,6 +23,10 @@ const componentsMap = [{
     name: 'row',
     title: 'Row',
     component: Row,
+  }, {
+    name: 'seoTable',
+    title: 'SeoTable',
+    component: SeoTable,
   }, {
     name: 'steps',
     title: 'Steps',
