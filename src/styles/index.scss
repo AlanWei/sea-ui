@@ -13,12 +13,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  #app {
-    height: 100%;
-  }
   .main-view {
-    height: 100%;
-
+    .view-content {
+      padding: 1.5em 3em;
+      background: $ui-background;
+      min-height: calc(100vh - 180px);
+    }
     .desktopComponent-content {
       padding: 0 2em;
       .title {
@@ -49,7 +49,7 @@ body {
       .component-subtitle {
         color: $ui-black-lighten;
         margin-bottom: 0.5em;
-        font-size: 0.8em;
+        font-size: $font-size-body;
       }
       .component-item {
         display: block;
@@ -76,7 +76,7 @@ body {
       .component-subtitle {
         color: $ui-black-lighten;
         margin-bottom: 0.5em;
-        font-size: 0.8em;
+        font-size: $font-size-body;
       }
       .component-item {
         display: block;

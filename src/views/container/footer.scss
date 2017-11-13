@@ -1,8 +1,6 @@
 @import "../../styles/helpers";
 
 .footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   padding: 0 4%;
   display: flex;
@@ -12,6 +10,7 @@
   height: 100px;
   background-color: $ui-white;
   font-size: $font-size-footnote;
+  border-top: 1px solid $ui-border;  
   .team {
     margin-top: 1em;
   }

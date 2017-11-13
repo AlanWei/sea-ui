@@ -1,50 +1,42 @@
 @import "../../styles/helpers";
 
 .view-components {
-  height: 100%;
-  .content {
-    height: 100%;
-    padding: 80px 48px 100px 48px;
-    background: $ui-background;
-    .container {
-      min-height: 100%;
-      width: 100%;
-      padding: 24px 0;
-      display: flex;
-      border-radius: 4px;
-      .sidebar {
-        background: $ui-white;
-        padding: 1.5em 0;
-        border-right: 1px solid $ui-border;
-        .componentGroup {
-          width: 14em;
-          .groupName {
-            display: block;
-            font-size: 1em;
-            color: $ui-black;
-            height: 2.5em;
-            line-height: 2.5em;
-            padding-left: 1.5em;
-          }
-          .component {
-            display: block;
-            color: $ui-black-lighten;
-            height: 2.5em;
-            line-height: 2.5em;
-            padding-left: 3em;
-          }
-          .groupName-active, .component-active {
-            color: $ui-blue;
-            border-right: 2px solid $ui-blue;
-            background: rgba(40, 111, 220, 0.1);
-          }
+  .container {
+    width: 100%;
+    display: flex;
+    border-radius: 4px;
+    .sidebar {
+      background: $ui-white;
+      padding: 1.5em 0;
+      border-right: 1px solid $ui-border;
+      .componentGroup {
+        width: 14em;
+        .groupName {
+          display: block;
+          font-size: 1em;
+          color: $ui-black;
+          height: 2.5em;
+          line-height: 2.5em;
+          padding-left: 1.5em;
+        }
+        .component {
+          display: block;
+          color: $ui-black-lighten;
+          height: 2.5em;
+          line-height: 2.5em;
+          padding-left: 3em;
+        }
+        .groupName-active, .component-active {
+          color: $ui-blue;
+          border-right: 2px solid $ui-blue;
+          background: rgba(40, 111, 220, 0.1);
         }
       }
-      .main {
-        flex: 1;
-        background: $ui-white;
-        padding: 1.5em 0;
-      }
+    }
+    .main {
+      flex: 1;
+      background: $ui-white;
+      padding: 1.5em 0;
     }
   }
 }

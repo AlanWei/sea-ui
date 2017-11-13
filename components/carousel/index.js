@@ -21,7 +21,7 @@ const MISOPERATION_TIME_PERCENTAGE = THRESHOLD_PERCENTAGE * 2;
 const START_INDEX = 1;
 
 const propTypes = {
-  className: PropTypes.string.is,
+  className: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.element),
   speed: PropTypes.number,
 };

@@ -1,7 +1,5 @@
-import Button from './mobile/button';
-import Carousel from './mobile/carousel';
+import Button from './desktop/button';
 import SeoTable from './desktop/seoTable';
-import Steps from './mobile/steps';
 
 const componentsMap = [{
   title: 'Data Entry',
@@ -13,17 +11,9 @@ const componentsMap = [{
 }, {
   title: 'Data Display',
   components: [{
-    name: 'carousel',
-    title: 'Carousel',
-    component: Carousel,
-  }, {
     name: 'seoTable',
     title: 'SeoTable',
     component: SeoTable,
-  }, {
-    name: 'steps',
-    title: 'Steps',
-    component: Steps,
   }],
 }];
 

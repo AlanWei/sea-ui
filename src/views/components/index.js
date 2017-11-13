@@ -101,7 +101,7 @@ class Components extends Component {
     return (
       <div className="view-components">
         <Header />
-        <div className="content">
+        <div className="view-content">
           <div className="container">
             {this.renderSideBar()}
             {this.renderMainContent()}

@@ -6,7 +6,7 @@ import './style.scss';
 
 class Home extends Component {
   renderContent = () => (
-    <div className="content">
+    <div className="view-content">
       <div className="mainContent">
         {/*
         UI library with fully i18n support, compatible with all major
