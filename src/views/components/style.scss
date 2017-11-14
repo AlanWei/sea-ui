@@ -3,14 +3,16 @@
 .view-components {
   .container {
     width: 100%;
-    display: flex;
     border-radius: 4px;
     .sidebar {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      min-width: 14em;
       background: $ui-white;
       padding: 1.5em 0;
       border-right: 1px solid $ui-border;
       .componentGroup {
-        width: 14em;
         .groupName {
           display: block;
           font-size: 1em;
@@ -34,7 +36,8 @@
       }
     }
     .main {
-      flex: 1;
+      display: inline-block;
+      width: 75%;
       background: $ui-white;
       padding: 1.5em 0;
     }

@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { SeoTable } from '../../../components';
 
+const TH1 = [{
+  text: 'Row Title',
+}];
+
+const TD1 = [[{
+  text: 'List Item',
+}], [{
+  text: 'List Item',
+}]];
+
 const TH2 = [{
   text: 'Row Title',
 }, {
@@ -93,6 +103,13 @@ class Demo extends Component {
         <div className="desc">Table for SEO contents.</div>
         <div className="examples">Examples</div>
         <div className="mobileComponent-content">
+          <div className="component-section">
+            <div className="component-title">1 Columns</div>
+            <SeoTable
+              thData={TH1}
+              tdData={TD1}
+            />
+          </div>
           <div className="component-section">
             <div className="component-title">2 Columns</div>
             <SeoTable
