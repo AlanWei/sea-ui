@@ -1,22 +1,41 @@
-@import '../styles/helpers';
+@import "../styles/helpers";
 
 .seaui-modal {
-  background: $ui-white;
-  margin: 0 1em;
-  min-width: calc(100% - 2em);
-  padding: 1.25em 1em;
-  border-radius: 7px;
-
-  .modalHeader {
-    font-size: $font-size-title;
-    font-weight: bold;
+  .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: $z-index-overlay;
+    background-color: $ui-overlay-bg;
   }
 
-  .modalContent {
-    margin: 1em 0 2.5em 0;
-  }
+  .modal {
+    position: fixed;
+    top: 20%;
+    z-index: $z-index-overlay;
+    background: $ui-white;
+    margin: 0 1em;
+    min-width: calc(100% - 2em);
+    padding: 1.25em 1em;
+    border-radius: 7px;
 
-  .modalActions {
-    text-align: center;
+    .modalHeader {
+      font-size: $font-size-title;
+      font-weight: bold;
+      margin-bottom: 0.75em;
+    }
+
+    .modalContent {
+      max-height: 15em;
+      overflow: auto;
+    }
+
+    .modalActions {
+      margin-top: 2em;
+      text-align: center;
+    }
   }
 }
