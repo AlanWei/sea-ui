@@ -26,15 +26,17 @@ class Modal extends Component {
     return (
       <div className={classes}>
         <div className="mask" />
-        <div className="modal">
-          <div className="modalHeader">
-            {this.props.header}
-          </div>
-          <div className="modalContent">
-            {this.props.content}
-          </div>
-          <div className="modalActions">
-            {this.props.actions}
+        <div className="container">
+          <div className="modal">
+            <div className="modalHeader">
+              {this.props.header}
+            </div>
+            <div className="modalContent">
+              {this.props.content}
+            </div>
+            <div className="modalActions">
+              {this.props.actions}
+            </div>
           </div>
         </div>
       </div>

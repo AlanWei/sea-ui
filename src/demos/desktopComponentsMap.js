@@ -1,6 +1,7 @@
 import Button from './desktop/button';
 import Carousel from './desktop/carousel';
 import Input from './desktop/input';
+import Modal from './desktop/modal';
 import SeoTable from './desktop/seoTable';
 
 const componentsMap = [{
@@ -24,6 +25,13 @@ const componentsMap = [{
     name: 'seoTable',
     title: 'SeoTable',
     component: SeoTable,
+  }],
+}, {
+  title: 'Feedback',
+  components: [{
+    name: 'modal',
+    title: 'Modal',
+    component: Modal,
   }],
 }];
 
