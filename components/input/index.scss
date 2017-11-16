@@ -1,0 +1,33 @@
+@import "../styles/helpers";
+
+.seaui-input {
+  position: relative;
+
+  // reset
+  input {
+    -webkit-appearance: none;
+    border: 0;
+    padding: 0;
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  // custom
+  .input {
+    border-radius: 2px;
+    border: 1px solid $ui-border;
+    font-size: 16px;
+    padding: 12px 16px;
+    width: 100%;
+  }
+  .input-withImage {
+    padding-left: 56px;
+  }
+  .image {
+    height: 24px;
+    left: 16px;
+    position: absolute;
+    top: 9px;
+  }  
+}

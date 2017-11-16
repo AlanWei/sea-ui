@@ -72,6 +72,15 @@ class Demo extends Component {
             {this.renderImages()}
           </Carousel>
         </div>
+        <div className="component-section">
+          <div className="component-title">AutoPlay</div>
+          <Carousel
+            className="component-item"
+            autoPlay
+          >
+            {this.renderItems()}
+          </Carousel>
+        </div>
       </div>
     );
   }

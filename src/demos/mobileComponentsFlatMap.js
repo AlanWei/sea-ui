@@ -1,5 +1,6 @@
 import Button from './mobile/button';
 import Carousel from './mobile/carousel';
+import Input from './mobile/input';
 import Modal from './mobile/modal';
 import Notification from './mobile/notification';
 import Row from './mobile/row';
@@ -14,6 +15,10 @@ const componentsFlatMap = [{
   name: 'carousel',
   title: 'Carousel',
   component: Carousel,
+}, {
+  name: 'input',
+  title: 'Input',
+  component: Input,
 }, {
   name: 'modal',
   title: 'Modal',
