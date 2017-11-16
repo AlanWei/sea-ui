@@ -15,11 +15,11 @@
   }
 }
 
-@mixin FillButton($uiColor, $color, $color-lighten) {
+@mixin FillButton($uiColor, $color, $color-lighten, $text-color) {
   &.seaui-button-#{$uiColor} {
     background: $color;
     border: 1px $color solid;
-    color: $ui-white;
+    color: $text-color;
     font-weight: 600;
 
     &:hover {
@@ -94,11 +94,11 @@
 }
 
 .seaui-button-fill {
-  @include FillButton("red", $ui-red, $ui-red-lighten);
-  @include FillButton("blue", $ui-blue, $ui-blue-lighten);
-  @include FillButton("green", $ui-green, $ui-green-lighten);
-  @include FillButton("black", $ui-black, $ui-black-lighten);
-  @include FillButton("white", $ui-white, $ui-white-darken-2);
+  @include FillButton("red", $ui-red, $ui-red-lighten, $ui-white);
+  @include FillButton("blue", $ui-blue, $ui-blue-lighten, $ui-white);
+  @include FillButton("green", $ui-green, $ui-green-lighten, $ui-white);
+  @include FillButton("black", $ui-black, $ui-black-lighten, $ui-white);
+  @include FillButton("white", $ui-white, $ui-white-darken-2, $ui-black);
 
   &.seaui-white {
     color: $ui-red;
@@ -109,6 +109,7 @@
   @include FlatButton("red", $ui-red, $ui-red-lighten);
   @include FlatButton("blue", $ui-blue, $ui-blue-lighten);
   @include FlatButton("green", $ui-green, $ui-green-lighten);
+  @include FlatButton("black", $ui-black, $ui-black-lighten);
   @include FlatButton("white", $ui-white, $ui-white-darken-2);
 }
 
@@ -116,5 +117,6 @@
   @include GhostButton("red", $ui-red, $ui-red-lighten);
   @include GhostButton("blue", $ui-blue, $ui-blue-lighten);
   @include GhostButton("green", $ui-green, $ui-green-lighten);
+  @include GhostButton("black", $ui-black, $ui-black-lighten);
   @include GhostButton("white", $ui-white, $ui-white-darken-2);
 }

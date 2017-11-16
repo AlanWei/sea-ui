@@ -32,11 +32,23 @@ class Demo extends Component {
       <div className="mobileComponent-content">
         <div className="component-section">
           <div className="component-title">Normal</div>
-          <Button onClick={() => this.handleFirstClick(true)}>Normal</Button>
+          <Button
+            uiType="fill"
+            uiColor="white"
+            onClick={() => this.handleFirstClick(true)}
+          >
+            Normal
+          </Button>
         </div>
         <div className="component-section">
           <div className="component-title">Long Content</div>
-          <Button onClick={() => this.handleSecondClick(true)}>Long Content</Button>
+          <Button
+            uiType="fill"
+            uiColor="white"
+            onClick={() => this.handleSecondClick(true)}
+          >
+            Long Content
+          </Button>
         </div>
         <Modal
           className="component-item"
