@@ -24,12 +24,16 @@ const propTypes = {
   className: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.element),
   speed: PropTypes.number,
+  autoPlay: PropTypes.bool,
+  autoPlayInterval: PropTypes.number,
 };
 
 const defaultProps = {
   className: '',
   children: [],
   speed: 500,
+  autoPlay: false,
+  autoPlayInterval: 3000,
 };
 
 class Carousel extends Component {
@@ -44,20 +48,12 @@ class Carousel extends Component {
   };
 
   componentDidMount() {
-    this.getContainerWidth();
+    this.initComponent();
   }
 
   componentWillUnmount() {
     requestAnimationFrame.cancel(this.rafId);
     this.rafId = null;
-  }
-
-  getContainerWidth = () => {
-    const width = get(this.container.getBoundingClientRect(), 'width');
-    this.setState({
-      width,
-      translateX: -(width) * START_INDEX,
-    });
   }
 
   getTweenQueue = (beginValue, endValue, speed) => {
@@ -69,6 +65,25 @@ class Carousel extends Component {
       );
     }
     return tweenQueue;
+  }
+
+  initComponent = () => {
+    const width = get(this.container.getBoundingClientRect(), 'width');
+    this.setState({
+      width,
+      translateX: -(width) * START_INDEX,
+    }, () => {
+      if (this.props.autoPlay) {
+        this.autoPlay();
+      }
+    });
+  }
+
+  autoPlay = () => {
+    if (this.autoPlayTimer) {
+      clearInterval(this.autoPlayTimer);
+    }
+    this.autoPlayTimer = setInterval(() => this.handleSwipe('left'), this.props.autoPlayInterval);
   }
 
   handleTouchStart = (evt) => {
@@ -92,7 +107,7 @@ class Carousel extends Component {
   }
 
   handleTouchEnd = () => {
-    const { moveDeltaX, width } = this.state;
+    const { moveDeltaX, width, direction } = this.state;
     const threshold = width * THRESHOLD_PERCENTAGE;
     const moveToNext = Math.abs(moveDeltaX) > threshold;
 
@@ -101,17 +116,15 @@ class Carousel extends Component {
     });
 
     if (moveToNext) {
-      this.handleSwipe();
+      this.handleSwipe(direction);
     } else {
       this.handleMisoperation();
     }
   }
 
-  handleSwipe = () => {
+  handleSwipe = (direction) => {
     const { children, speed } = this.props;
-    const {
-      width, currentIndex, direction, translateX,
-    } = this.state;
+    const { width, currentIndex, translateX } = this.state;
     const count = size(children);
 
     let newIndex;
@@ -194,6 +207,18 @@ class Carousel extends Component {
     this.handleTouchEnd();
   }
 
+  handleMouseOver = () => {
+    if (this.props.autoPlay) {
+      clearInterval(this.autoPlayTimer);
+    }
+  }
+
+  handleMouseOut = () => {
+    if (this.props.autoPlay) {
+      this.autoPlay();
+    }
+  }
+
   renderSilderList = () => {
     const { children } = this.props;
     const { translateX, width } = this.state;
@@ -233,6 +258,10 @@ class Carousel extends Component {
               onMouseMove={this.handleMouseMove}
               onMouseUp={this.handleMouseUp}
               onMouseLeave={this.handleMouseLeave}
+              onMouseOver={this.handleMouseOver}
+              onMouseOut={this.handleMouseOut}
+              onFocus={this.handleMouseOver}
+              onBlur={this.handleMouseOut}
             >
               {c}
             </div>
