@@ -85,8 +85,29 @@ class Components extends Component {
 
   renderComponent = () => {
     const Demo = get(this.state.component, 'component');
+    const desc = [
+      'SEA UI is a pattern library which targets for Southeast Asia market, ',
+      'suitable for both desktop and mobile devices ',
+      'with full i18n support and browser compatibility.',
+    ].join('');
+    const js = "import { Button } from 'sea-ui'";
+    const css = "import 'sea-ui/lib/seaui.css'";
     if (isNil(Demo)) {
-      return null;
+      return (
+        <div className="desktopComponent-content">
+          <h1 className="title">Getting Started</h1>
+          <div>{desc}</div>
+          <h3>Installing</h3>
+          <div className="code-block">
+            <code>npm install sea-ui</code>
+          </div>
+          <h3>Usage</h3>
+          <div className="code-block">
+            <code>{js}</code>
+            <code>{css}</code>
+          </div>
+        </div>
+      );
     }
     return <Demo />;
   }

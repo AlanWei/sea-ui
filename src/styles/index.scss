@@ -22,6 +22,7 @@ body {
     .desktopComponent-content {
       padding: 0 2em;
       .title {
+        font-weight: normal;
         font-size: 2em;
         color: $ui-text;
         margin-bottom: 1em;
@@ -85,6 +86,22 @@ body {
           margin-bottom: 0;
         }
       }
+    }
+  }
+  .code-block {
+    padding: 1em;
+    margin: 1.2em 0;
+    overflow: auto;
+    border: none;
+    background: #f7f7f7;
+    color: rgba(0,0,0,.65);
+
+    code {
+      display: block;
+      font-size: 14px;
+      color: rgba(0,0,0,.65);
+      height: 1.5em;
+      line-height: 1.5em;
     }
   }
 }
