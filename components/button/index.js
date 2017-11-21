@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 import './index.scss';
 
 const propTypes = {
@@ -21,7 +22,7 @@ const defaultProps = {
 };
 
 const Button = (props) => {
-  const rest = omit(props, Object.keys(defaultProps));
+  const rest = omit(props, keys(defaultProps));
   const classes = classnames(
     'seaui-button',
     `seaui-button-${props.uiType}`,

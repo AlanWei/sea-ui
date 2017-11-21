@@ -1,5 +1,6 @@
 import Button from './button';
 import Carousel from './carousel';
+import Checkbox from './checkbox';
 import Input from './input';
 import Modal from './modal';
 import Notification from './notification';
@@ -10,6 +11,7 @@ import Steps from './steps';
 export {
   Button,
   Carousel,
+  Checkbox,
   Input,
   Modal,
   Notification,

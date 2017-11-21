@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   imgUrl: PropTypes.string,
   imgAlt: PropTypes.string,
   autoFocus: PropTypes.bool,
@@ -13,6 +15,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: '',
   imgUrl: '',
   imgAlt: '',
   autoFocus: false,
@@ -41,7 +44,7 @@ class Input extends Component {
   }
 
   render() {
-    const rest = omit(this.props, ['className', 'style', ...Object.keys(defaultProps)]);
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-input', this.props.className);
     const inputClasses = classnames({
       input: true,

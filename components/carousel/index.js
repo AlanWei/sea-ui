@@ -10,6 +10,7 @@ import size from 'lodash/size';
 import omit from 'lodash/omit';
 import head from 'lodash/head';
 import last from 'lodash/last';
+import keys from 'lodash/keys';
 import isEmpty from 'lodash/isEmpty';
 import { getPosition } from '../utils/domUtils';
 import './index.scss';
@@ -295,7 +296,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const rest = omit(this.props, Object.keys(defaultProps));
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-carousel', this.props.className);
     return (
       <div

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
   text: PropTypes.string,
@@ -13,6 +15,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: '',
   imgSrc: '',
   imgAlt: '',
   text: '',
@@ -25,8 +28,9 @@ class Row extends Component {
     const {
       imgSrc, imgAlt, text, url, openNewTab,
     } = this.props;
-    const rest = omit(this.props, ['className', 'style', ...Object.keys(defaultProps)]);
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('sea-row', this.props.className);
+
     if (url !== '') {
       return (
         <a href={url} target={openNewTab ? '_blank' : ''}>
@@ -37,6 +41,7 @@ class Row extends Component {
         </a>
       );
     }
+
     return (
       <div {...rest} className={classes}>
         <img className="rowIcon" src={imgSrc} alt={imgAlt} />

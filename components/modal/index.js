@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   show: PropTypes.bool,
   node: PropTypes.object,
   header: PropTypes.any,
@@ -13,6 +16,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: '',
   show: false,
   node: window.document.body,
   header: '',
@@ -22,9 +26,10 @@ const defaultProps = {
 
 class Modal extends Component {
   renderModal = () => {
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-modal', this.props.className);
     return (
-      <div className={classes}>
+      <div {...rest} className={classes}>
         <div className="mask" />
         <div className="container">
           <div className="modal">

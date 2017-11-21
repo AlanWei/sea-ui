@@ -1,5 +1,6 @@
 import Button from './desktop/button';
 import Carousel from './desktop/carousel';
+import Checkbox from './desktop/checkbox';
 import Input from './desktop/input';
 import Modal from './desktop/modal';
 import SeoTable from './desktop/seoTable';
@@ -12,6 +13,10 @@ const componentsFlatMap = [{
   name: 'carousel',
   title: 'Carousel',
   component: Carousel,
+}, {
+  name: 'checkbox',
+  title: 'Checkbox',
+  component: Checkbox,
 }, {
   name: 'input',
   title: 'Input',

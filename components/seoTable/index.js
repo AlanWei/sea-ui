@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import map from 'lodash/map';
+import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   thData: PropTypes.array.isRequired,
   tdData: PropTypes.array.isRequired,
+};
+
+const defaultProps = {
+  className: '',
 };
 
 class SeoTable extends Component {
@@ -34,9 +41,10 @@ class SeoTable extends Component {
   )
 
   render() {
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-seoTable', this.props.className);
     return (
-      <div className={classes}>
+      <div {...rest} className={classes}>
         <table>
           {this.renderTh()}
           {this.renderTd()}
@@ -47,4 +55,5 @@ class SeoTable extends Component {
 }
 
 SeoTable.propTypes = propTypes;
+SeoTable.defaultProps = defaultProps;
 export default SeoTable;

@@ -1,0 +1,12 @@
+@import "../styles/helpers";
+
+.seaui-checkbox {
+  height: 1.5em;
+  line-height: 1.5em;
+  cursor: pointer;
+  position: relative;
+  .checkbox-value {
+    padding-left: 0.625em;
+    color: $ui-text;
+  }
+}

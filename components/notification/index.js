@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 import Toast from './Toast';
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   text: PropTypes.string.isRequired,
   dismissText: PropTypes.string,
   onDismiss: PropTypes.func,
@@ -13,6 +16,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: '',
   dismissText: 'OK',
   onDismiss: () => {},
   autoDismiss: true,
@@ -31,9 +35,10 @@ class Notification extends React.Component {
   }
 
   render() {
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-notification', this.props.className);
     return (
-      <div className={classes}>
+      <div {...rest} className={classes}>
         <Toast
           text={this.props.text}
           dismissText={this.props.dismissText}

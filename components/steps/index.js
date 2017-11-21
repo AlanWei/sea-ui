@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import map from 'lodash/map';
+import omit from 'lodash/omit';
+import keys from 'lodash/keys';
 import tick from '../assets/tick.svg';
 
 import './index.scss';
 
 const propTypes = {
+  className: PropTypes.string,
   data: PropTypes.array,
   activeDataIndex: PropTypes.number,
 };
 
 const defaultProps = {
+  className: '',
   data: [],
   activeDataIndex: 0,
 };
@@ -52,9 +56,10 @@ class Steps extends Component {
   );
 
   render() {
+    const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-steps', this.props.className);
     return (
-      <div className={classes}>
+      <div {...rest} className={classes}>
         {this.renderSteps()}
       </div>
     );
