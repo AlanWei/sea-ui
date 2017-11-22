@@ -27,7 +27,12 @@ class Checkbox extends Component {
       className, text, checked, disabled, onSelect,
     } = this.props;
     const rest = omit(this.props, keys(defaultProps));
+
     const classes = classnames('seaui-checkbox', className);
+    const inpuntClasses = classnames({
+      checkboxInput: true,
+      'checkboxInput-disabled': disabled,
+    });
     const valueClasses = classnames({
       checkboxValue: true,
       'checkboxValue-disabled': disabled,
@@ -42,7 +47,7 @@ class Checkbox extends Component {
         onKeyPress={onSelect}
       >
         <input
-          className="checkboxInput"
+          className={inpuntClasses}
           type="checkbox"
           checked={checked}
           onChange={() => {}}
