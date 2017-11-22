@@ -8,7 +8,8 @@ import './index.scss';
 
 const propTypes = {
   className: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  show: PropTypes.bool,
+  text: PropTypes.string,
   dismissText: PropTypes.string,
   onDismiss: PropTypes.func,
   autoDismiss: PropTypes.bool,
@@ -17,6 +18,8 @@ const propTypes = {
 
 const defaultProps = {
   className: '',
+  show: true,
+  text: '',
   dismissText: 'OK',
   onDismiss: () => {},
   autoDismiss: true,
@@ -26,23 +29,24 @@ const defaultProps = {
 class Notification extends React.Component {
   componentDidMount() {
     if (this.props.autoDismiss) {
-      setTimeout(this.handleDismiss, this.props.autoDismissInterval);
+      setTimeout(this.props.onDismiss, this.props.autoDismissInterval);
     }
   }
 
-  handleDismiss = () => {
-    this.props.onDismiss();
-  }
-
   render() {
+    const { show, text, dismissText } = this.props;
     const rest = omit(this.props, keys(defaultProps));
-    const classes = classnames('seaui-notification', this.props.className);
+    const classes = classnames({
+      'seaui-notification': true,
+      'seaui-notification-hidden': !show,
+      [this.props.className]: true,
+    });
     return (
       <div {...rest} className={classes}>
         <Toast
-          text={this.props.text}
-          dismissText={this.props.dismissText}
-          onDismiss={this.handleDismiss}
+          text={text}
+          dismissText={dismissText}
+          onDismiss={this.props.onDismiss}
         />
       </div>
     );

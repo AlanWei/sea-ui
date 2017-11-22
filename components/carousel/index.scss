@@ -43,12 +43,11 @@
     opacity: 0.5;
     vertical-align: middle;
     width: 4px;
-  }
-
-  .dot-active {
-    background: $ui-black-darken;
-    height: 6px;
-    opacity: 1;
-    width: 6px;
+    &-active {
+      background: $ui-black-darken;
+      height: 6px;
+      opacity: 1;
+      width: 6px;
+    }
   }
 }

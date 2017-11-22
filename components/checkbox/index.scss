@@ -1,12 +1,32 @@
 @import "../styles/helpers";
 
 .seaui-checkbox {
+  display: inline-block;
+  font-size: $font-size-body;
   height: 1.5em;
   line-height: 1.5em;
-  cursor: pointer;
   position: relative;
-  .checkbox-value {
-    padding-left: 0.625em;
+  .checkboxInput {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-size: 1em;
+    height: 1em;
+    width: 1em;
+    margin: 0;
+    cursor: pointer;
+    &-disabled {
+      cursor: not-allowed;
+    }
+  }
+  .checkboxValue {
     color: $ui-text;
+    padding-left: 1.5em;
+    padding-right: 0.5em;
+    cursor: pointer;
+    &-disabled {
+      color: $ui-text-lighten;
+      cursor: not-allowed;
+    }
   }
 }

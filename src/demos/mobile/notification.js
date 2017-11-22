@@ -24,26 +24,20 @@ class Demo extends Component {
       <div className="mobileComponent-content">
         <div className="component-section">
           <div className="component-title">Normal</div>
-          {this.state.showFirstNotification ?
-            <Notification
-              text="Login Success"
-              onDismiss={this.handleFirst}
-            />
-            :
-            null
-          }
+          <Notification
+            show={this.state.showFirstNotification}
+            text="Login Success"
+            onDismiss={this.handleFirst}
+          />
         </div>
         <div className="component-section">
           <div className="component-title">Disable Auto Dismiss</div>
-          {this.state.showSecondNotification ?
-            <Notification
-              text="Signup Success"
-              autoDismiss={false}
-              onDismiss={this.handleSecond}
-            />
-            :
-            null
-          }
+          <Notification
+            show={this.state.showSecondNotification}
+            text="Signup Success"
+            autoDismiss={false}
+            onDismiss={this.handleSecond}
+          />
         </div>
       </div>
     );

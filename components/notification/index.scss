@@ -1,14 +1,8 @@
 @import '../styles/helpers';
 
 .seaui-notification {
-  .seaui-notificationToast {
+  z-index: $z-index-notification;
+  &-hidden {
     display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  .seaui-notificationToast:last-child {
-    display: block;
-    opacity: 1;
-    z-index: $z-index-notification;
   }
 }

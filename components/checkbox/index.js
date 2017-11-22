@@ -8,29 +8,29 @@ import './index.scss';
 const propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
-  isActive: PropTypes.bool,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   onSelect: PropTypes.func,
 };
 
 const defaultProps = {
   className: '',
   text: '',
-  isActive: false,
+  checked: false,
+  disabled: false,
   onSelect: () => {},
 };
 
 class Checkbox extends Component {
-  handleClick = evt => (
-    this.props.onSelect(evt, this.props.text)
-  )
-
   render() {
-    const { className, text, isActive } = this.props;
+    const {
+      className, text, checked, disabled, onSelect,
+    } = this.props;
     const rest = omit(this.props, keys(defaultProps));
     const classes = classnames('seaui-checkbox', className);
-    const checkboxClasses = classnames({
-      checkboxInput: true,
-      'checkboxInput-active': isActive,
+    const valueClasses = classnames({
+      checkboxValue: true,
+      'checkboxValue-disabled': disabled,
     });
 
     return (
@@ -38,11 +38,16 @@ class Checkbox extends Component {
         {...rest}
         className={classes}
         role="presentation"
-        onClick={this.handleClick}
-        onKeyPress={this.handleClick}
+        onClick={onSelect}
+        onKeyPress={onSelect}
       >
-        <span className={checkboxClasses} />
-        <span className="checkbox-value">{text}</span>
+        <input
+          className="checkboxInput"
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+        />
+        <span className={valueClasses}>{text}</span>
       </div>
     );
   }
