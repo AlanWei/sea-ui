@@ -1,0 +1,10 @@
+@import "../styles/helpers";
+
+.seaui-checkboxGroup {
+  &-item {
+    margin-right: 0.75em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

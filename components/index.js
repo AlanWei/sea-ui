@@ -1,6 +1,7 @@
 import Button from './button';
 import Carousel from './carousel';
 import Checkbox from './checkbox';
+import CheckboxGroup from './checkboxGroup';
 import Input from './input';
 import Modal from './modal';
 import Notification from './notification';
@@ -12,6 +13,7 @@ export {
   Button,
   Carousel,
   Checkbox,
+  CheckboxGroup,
   Input,
   Modal,
   Notification,

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Checkbox } from '../../../components';
+import { Checkbox, CheckboxGroup } from '../../../components';
 
 class Demo extends Component {
   state = {
     checked: false,
+    checkedGroup: [false, false, true],
   }
 
   handleSelect = () => {
@@ -11,6 +12,13 @@ class Demo extends Component {
       checked: !this.state.checked,
     });
   }
+
+  handleGroupSelect = (checked) => {
+    this.setState({
+      checkedGroup: checked,
+    });
+  }
+
   render() {
     return (
       <div className="desktopComponent-content">
@@ -31,6 +39,20 @@ class Demo extends Component {
             text="Checkbox"
             checked
             disabled
+          />
+        </div>
+        <div className="component-section">
+          <div className="component-title">CheckboxGroup</div>
+          <CheckboxGroup
+            data={[{
+              text: 'Samantha',
+            }, {
+              text: 'Swordfish',
+            }, {
+              text: 'Presto',
+            }]}
+            checked={this.state.checkedGroup}
+            onSelect={this.handleGroupSelect}
           />
         </div>
       </div>

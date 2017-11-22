@@ -45,6 +45,7 @@ class Checkbox extends Component {
           className="checkboxInput"
           type="checkbox"
           checked={checked}
+          onChange={() => {}}
           disabled={disabled}
         />
         <span className={valueClasses}>{text}</span>
