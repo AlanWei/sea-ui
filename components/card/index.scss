@@ -1,0 +1,23 @@
+@import '../styles/helpers';
+
+.seaui-card {
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: $ui-white;
+  border: 1px solid $ui-border;
+  border-radius: 2px;
+  position: relative;
+  .card-header {
+    height: 3em;
+    line-height: 3em;
+    padding: 0 1.5em;
+    color: $ui-text-darken;
+    border-bottom: 1px solid $ui-border;
+  }
+  .card-body {
+    padding: 1.5em;
+  }
+}

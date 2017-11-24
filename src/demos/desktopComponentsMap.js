@@ -1,4 +1,5 @@
 import Button from './desktop/button';
+import Card from './desktop/card';
 import Carousel from './desktop/carousel';
 import Checkbox from './desktop/checkbox';
 import Input from './desktop/input';
@@ -23,6 +24,10 @@ const componentsMap = [{
 }, {
   title: 'Data Display',
   components: [{
+    name: 'card',
+    title: 'Card',
+    component: Card,
+  }, {
     name: 'carousel',
     title: 'Carousel',
     component: Carousel,

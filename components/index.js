@@ -1,4 +1,5 @@
 import Button from './button';
+import Card from './card';
 import Carousel from './carousel';
 import Checkbox from './checkbox';
 import CheckboxGroup from './checkboxGroup';
@@ -11,6 +12,7 @@ import Steps from './steps';
 
 export {
   Button,
+  Card,
   Carousel,
   Checkbox,
   CheckboxGroup,

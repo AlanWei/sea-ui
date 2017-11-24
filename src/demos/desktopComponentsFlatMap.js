@@ -1,4 +1,5 @@
 import Button from './desktop/button';
+import Card from './desktop/card';
 import Carousel from './desktop/carousel';
 import Checkbox from './desktop/checkbox';
 import Input from './desktop/input';
@@ -9,6 +10,10 @@ const componentsFlatMap = [{
   name: 'button',
   title: 'Button',
   component: Button,
+}, {
+  name: 'card',
+  title: 'Card',
+  component: Card,
 }, {
   name: 'carousel',
   title: 'Carousel',
