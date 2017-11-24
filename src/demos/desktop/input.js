@@ -26,6 +26,10 @@ class Demo extends Component {
           <Input imgUrl={faq} />
         </div>
         <div className="component-section">
+          <div className="component-title">With Description</div>
+          <Input label="Input:" />
+        </div>
+        <div className="component-section">
           <div className="component-title">AutoFocus</div>
           <Input
             autoFocus

@@ -1,0 +1,17 @@
+@import "../../styles/helpers";
+
+.component-section {
+  .card-demoActions {
+    display: flex;
+    .action {
+      flex: 1;
+      text-align: center;
+      margin: 0.75em 0;
+      border-right: 1px solid $ui-border;
+      cursor: pointer;
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}

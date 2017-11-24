@@ -27,12 +27,6 @@
       margin: 0 auto;
       padding: 1.25em 1em;
       border-radius: 7px;
-      width: 40em;
-
-      @media only screen and (max-width: 768px) {
-        /* For mobile phones: */
-        width: 20em;
-      }
 
       .modalHeader {
         font-size: $font-size-title;
@@ -41,8 +35,6 @@
       }
 
       .modalContent {
-        max-height: 15em;
-        overflow: auto;
       }
 
       .modalActions {

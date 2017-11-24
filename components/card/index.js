@@ -6,11 +6,13 @@ import './index.scss';
 const propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
+  actions: PropTypes.any,
 };
 
 const defaultProps = {
   className: '',
   title: '',
+  actions: null,
 };
 
 class Card extends Component {
@@ -18,8 +20,17 @@ class Card extends Component {
     const classes = classnames('seaui-card', this.props.className);
     return (
       <div className={classes}>
-        <div className="card-header">{this.props.title}</div>
+        {this.props.title ?
+          <div className="card-header">{this.props.title}</div>
+          :
+          null
+        }
         <div className="card-body">{this.props.children}</div>
+        {this.props.actions ?
+          <div className="card-actions">{this.props.actions}</div>
+          :
+          null
+        }
       </div>
     );
   }

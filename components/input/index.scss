@@ -20,6 +20,9 @@
     font-size: 16px;
     padding: 12px 16px;
     width: 100%;
+    &-withLabel {
+      width: auto;
+    }
     &-withImage {
       padding-left: 56px;
     }
@@ -29,5 +32,9 @@
     left: 16px;
     position: absolute;
     top: 9px;
-  }  
+  }
+  .label {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
 }
