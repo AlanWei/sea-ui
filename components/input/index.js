@@ -8,7 +8,8 @@ import './index.scss';
 
 const propTypes = {
   className: PropTypes.string,
-  label: PropTypes.string,
+  leftLabel: PropTypes.string,
+  topLabel: PropTypes.string,
   imgUrl: PropTypes.string,
   imgAlt: PropTypes.string,
   autoFocus: PropTypes.bool,
@@ -17,7 +18,8 @@ const propTypes = {
 
 const defaultProps = {
   className: '',
-  label: '',
+  leftLabel: '',
+  topLabel: '',
   imgUrl: '',
   imgAlt: '',
   autoFocus: false,
@@ -38,9 +40,14 @@ class Input extends Component {
   }
 
   renderLabel = () => {
-    if (this.props.label) {
+    if (this.props.leftLabel) {
       return (
-        <div className="label">{this.props.label}</div>
+        <div className="leftLabel">{this.props.leftLabel}</div>
+      );
+    }
+    if (this.props.topLabel) {
+      return (
+        <div className="topLabel">{this.props.topLabel}</div>
       );
     }
     return null;
@@ -59,7 +66,7 @@ class Input extends Component {
     const classes = classnames('seaui-input', this.props.className);
     const inputClasses = classnames({
       input: true,
-      'input-withLabel': this.props.label !== '',
+      'input-withLabel': this.props.leftLabel !== '',
       'input-withImage': this.props.imgUrl !== '',
     });
     return (
