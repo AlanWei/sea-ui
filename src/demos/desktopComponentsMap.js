@@ -31,10 +31,6 @@ const componentsMap = [{
     name: 'carousel',
     title: 'Carousel',
     component: Carousel,
-  }, {
-    name: 'seoTable',
-    title: 'SeoTable',
-    component: SeoTable,
   }],
 }, {
   title: 'Feedback',
@@ -42,6 +38,13 @@ const componentsMap = [{
     name: 'modal',
     title: 'Modal',
     component: Modal,
+  }],
+}, {
+  title: 'SEO',
+  components: [{
+    name: 'seoTable',
+    title: 'SeoTable',
+    component: SeoTable,
   }],
 }];
 

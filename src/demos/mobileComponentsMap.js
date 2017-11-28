@@ -29,10 +29,6 @@ const componentsMap = [{
     title: 'Row',
     component: Row,
   }, {
-    name: 'seoTable',
-    title: 'SeoTable',
-    component: SeoTable,
-  }, {
     name: 'steps',
     title: 'Steps',
     component: Steps,
@@ -47,6 +43,13 @@ const componentsMap = [{
     name: 'notification',
     title: 'Notification',
     component: Notification,
+  }],
+}, {
+  title: 'SEO',
+  components: [{
+    name: 'seoTable',
+    title: 'SeoTable',
+    component: SeoTable,
   }],
 }];
 

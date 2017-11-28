@@ -9,12 +9,14 @@ import './index.scss';
 
 const propTypes = {
   className: PropTypes.string,
-  thData: PropTypes.array.isRequired,
-  tdData: PropTypes.array.isRequired,
+  thData: PropTypes.array,
+  tdData: PropTypes.array,
 };
 
 const defaultProps = {
   className: '',
+  thData: [],
+  tdData: [],
 };
 
 class SeoTable extends Component {
