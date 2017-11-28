@@ -1,0 +1,33 @@
+@import '../styles/helpers';
+
+.seaui-seoLinkGroup {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  .linkGroup {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .groupTitle {
+      margin-bottom: 16px;
+      font-size: $font-size-body;
+      font-weight: bold;
+    }
+    .link-horizontal {
+      display: inline-block;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .link-vertical {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

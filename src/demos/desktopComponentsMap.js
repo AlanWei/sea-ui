@@ -4,6 +4,7 @@ import Carousel from './desktop/carousel';
 import Checkbox from './desktop/checkbox';
 import Input from './desktop/input';
 import Modal from './desktop/modal';
+import SeoLinkGroup from './desktop/seoLinkGroup';
 import SeoTable from './desktop/seoTable';
 
 const componentsMap = [{
@@ -42,6 +43,10 @@ const componentsMap = [{
 }, {
   title: 'SEO',
   components: [{
+    name: 'seoLinkGroup',
+    title: 'SeoLinkGroup',
+    component: SeoLinkGroup,
+  }, {
     name: 'seoTable',
     title: 'SeoTable',
     component: SeoTable,

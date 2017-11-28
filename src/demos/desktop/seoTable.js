@@ -102,35 +102,33 @@ class Demo extends Component {
         <div className="title">SeoTable</div>
         <div className="desc">Table for SEO contents.</div>
         <div className="examples">Examples</div>
-        <div className="mobileComponent-content">
-          <div className="component-section">
-            <div className="component-title">1 Columns</div>
-            <SeoTable
-              thData={TH1}
-              tdData={TD1}
-            />
-          </div>
-          <div className="component-section">
-            <div className="component-title">2 Columns</div>
-            <SeoTable
-              thData={TH2}
-              tdData={TD2}
-            />
-          </div>
-          <div className="component-section">
-            <div className="component-title">4 Columns</div>
-            <SeoTable
-              thData={TH4}
-              tdData={TD4}
-            />
-          </div>
-          <div className="component-section">
-            <div className="component-title">6 Columns</div>
-            <SeoTable
-              thData={TH6}
-              tdData={TD6}
-            />
-          </div>
+        <div className="component-section">
+          <div className="component-title">1 Columns</div>
+          <SeoTable
+            thData={TH1}
+            tdData={TD1}
+          />
+        </div>
+        <div className="component-section">
+          <div className="component-title">2 Columns</div>
+          <SeoTable
+            thData={TH2}
+            tdData={TD2}
+          />
+        </div>
+        <div className="component-section">
+          <div className="component-title">4 Columns</div>
+          <SeoTable
+            thData={TH4}
+            tdData={TD4}
+          />
+        </div>
+        <div className="component-section">
+          <div className="component-title">6 Columns</div>
+          <SeoTable
+            thData={TH6}
+            tdData={TD6}
+          />
         </div>
       </div>
     );

@@ -7,6 +7,8 @@ import Input from './input';
 import Modal from './modal';
 import Notification from './notification';
 import Row from './row';
+import SeoLink from './seoLinkGroup/Link';
+import SeoLinkGroup from './seoLinkGroup';
 import SeoTable from './seoTable';
 import Steps from './steps';
 
@@ -20,6 +22,8 @@ export {
   Modal,
   Notification,
   Row,
+  SeoLink,
+  SeoLinkGroup,
   SeoTable,
   Steps,
 };

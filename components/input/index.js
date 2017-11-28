@@ -87,4 +87,3 @@ class Input extends Component {
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
 export default Input;
- 
