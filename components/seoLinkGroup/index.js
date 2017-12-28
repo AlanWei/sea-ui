@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import map from 'lodash/map';
 import omit from 'lodash/omit';
 import keys from 'lodash/keys';
+import isEmpty from 'lodash/isEmpty';
 import Link from './Link';
 import './index.scss';
 
@@ -23,6 +24,7 @@ const defaultProps = {
 
 class SeoLinkGroup extends Component {
   renderHeader = (title, idx) => (
+    isEmpty(title) ? null :
     <div
       key={idx}
       className="groupTitle"
@@ -32,6 +34,7 @@ class SeoLinkGroup extends Component {
   )
 
   renderHref = (linkClasses, text, link, idx) => (
+    isEmpty(text) || isEmpty(link) ? null :
     <Link
       key={idx}
       className={linkClasses}
