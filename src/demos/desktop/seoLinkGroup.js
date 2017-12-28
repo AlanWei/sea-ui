@@ -1,201 +1,49 @@
 import React, { Component } from 'react';
 import { SeoLinkGroup } from '../../../components';
 
-const BLOCKS = [{
-  title: 'Popular Store',
-  links: [{
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }],
-}];
+const BLOCKS = [
+  {
+    children: [
+      { type: 'HEADER', text: 'Popular Store' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+    ],
+  },
+];
 
-const MULTI_BLOCKS = [{
-  title: 'Popular Store',
-  links: [{
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }],
-}, {
-  title: 'Popular Store',
-  links: [{
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }],
-}, {
-  title: 'Popular Store',
-  links: [{
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }, {
-    text: 'Lazada Promo Codes',
-    link: '/lazada',
-  }],
-}];
+const MULTI_BLOCKS = [
+  {
+    children: [
+      { type: 'HEADER', text: 'Popular Store' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes' },
+    ],
+  },
+  {
+    children: [
+      { type: 'HEADER', text: 'Popular Store2' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes2' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes2' },
+      { type: 'HREF', url: '/lazada', label: 'Lazada Promo Codes2' },
+    ],
+  },
+];
 
 class Demo extends Component {
   render() {

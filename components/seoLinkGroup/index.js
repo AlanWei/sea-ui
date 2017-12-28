@@ -10,13 +10,9 @@ import './index.scss';
 const propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    links: PropTypes.arrayOf(PropTypes.shape({
-      text: PropTypes.string,
-      link: PropTypes.string,
-    })),
+    children: PropTypes.array,
   })),
-  layout: PropTypes.oneOf('horizontal', 'vertical'),
+  layout: PropTypes.oneOf(['horizontal', 'vertical']),
 };
 
 const defaultProps = {
@@ -26,6 +22,37 @@ const defaultProps = {
 };
 
 class SeoLinkGroup extends Component {
+  renderHeader = (title, idx) => (
+    <div
+      key={idx}
+      className="groupTitle"
+    >
+      {title}
+    </div>
+  )
+
+  renderHref = (linkClasses, text, link, idx) => (
+    <Link
+      key={idx}
+      className={linkClasses}
+      text={text}
+      link={link}
+    />
+  );
+
+  renderBlock = (block, linkClasses) => (
+    map(block.children, (obj, idx) => {
+      switch (obj.type) {
+        case 'HEADER':
+          return this.renderHeader(obj.text, idx);
+        case 'HREF':
+          return this.renderHref(linkClasses, obj.label, obj.url, idx);
+        default:
+          return null;
+      }
+    })
+  )
+
   render() {
     const { data, layout } = this.props;
     const rest = omit(this.props, keys(defaultProps));
@@ -46,18 +73,10 @@ class SeoLinkGroup extends Component {
         {
           map(data, (block, idx) => (
             <div
-              className="linkGroup"
               key={idx}
+              className="linkGroup"
             >
-              <div className="groupTitle">{block.title}</div>
-              {map(block.links, (link, index) => (
-                <Link
-                  className={linkClasses}
-                  key={index}
-                  text={link.text}
-                  link={link.link}
-                />
-              ))}
+              {this.renderBlock(block, linkClasses)}
             </div>
           ))
         }
